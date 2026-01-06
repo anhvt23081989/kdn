@@ -1,0 +1,67 @@
+<div class="container mx-auto px-4 py-8">
+  <nav class="mb-4 text-sm text-gray-600">
+    <%= link_to "Trang chủ", root_path, class: "hover:text-blue-600" %> /
+    <%= link_to "Tin tức", posts_path, class: "hover:text-blue-600" %> /
+    <span class="text-gray-900"><%= @post.title %></span>
+  </nav>
+
+  <article class="max-w-4xl mx-auto">
+    <header class="mb-8">
+      <% if @post.category.present? %>
+        <p class="text-sm text-blue-600 mb-2">
+          <%= link_to @post.category.name, category_path(@post.category.slug), 
+              class: "hover:underline" %>
+        </p>
+      <% end %>
+      <h1 class="text-4xl font-bold mb-4"><%= @post.title %></h1>
+      <% if @post.published_at.present? %>
+        <p class="text-gray-600">
+          <time datetime="<%= @post.published_at.iso8601 %>">
+            <%= @post.published_at.strftime("%d/%m/%Y %H:%M") %>
+          </time>
+        </p>
+      <% end %>
+    </header>
+
+    <% if @post.cover.attached? %>
+      <div class="mb-8">
+        <%= image_tag @post.cover, class: "w-full rounded-lg shadow-md" %>
+      </div>
+    <% end %>
+
+    <% if @post.excerpt.present? %>
+      <p class="text-xl text-gray-700 mb-8 italic"><%= @post.excerpt %></p>
+    <% end %>
+
+    <div class="prose max-w-none mb-12">
+      <%= @post.content %>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  <% if @related_posts.any? %>
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold mb-6">Bài viết liên quan</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <% @related_posts.each do |post| %>
+          <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <% if post.cover.attached? %>
+              <%= link_to post_path(post.slug) do %>
+                <%= image_tag post.cover, class: "w-full h-48 object-cover" %>
+              <% end %>
+            <% end %>
+            <div class="p-4">
+              <h3 class="font-semibold text-lg mb-2">
+                <%= link_to post.title, post_path(post.slug), class: "hover:text-blue-600" %>
+              </h3>
+              <% if post.published_at.present? %>
+                <p class="text-gray-400 text-xs"><%= post.published_at.strftime("%d/%m/%Y") %></p>
+              <% end %>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+</div>
+

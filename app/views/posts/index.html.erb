@@ -1,0 +1,48 @@
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-8">Tin tức</h1>
+
+  <% if @posts.any? %>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% @posts.each do |post| %>
+        <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <% if post.cover.attached? %>
+            <%= link_to post_path(post.slug) do %>
+              <%= image_tag post.cover, class: "w-full h-48 object-cover" %>
+            <% end %>
+          <% end %>
+          <div class="p-6">
+            <% if post.category.present? %>
+              <p class="text-sm text-blue-600 mb-2">
+                <%= link_to post.category.name, category_path(post.category.slug), 
+                    class: "hover:underline" %>
+              </p>
+            <% end %>
+            <h2 class="text-xl font-semibold mb-2">
+              <%= link_to post.title, post_path(post.slug), class: "hover:text-blue-600" %>
+            </h2>
+            <% if post.excerpt.present? %>
+              <p class="text-gray-600 mb-4"><%= truncate(post.excerpt, length: 150) %></p>
+            <% end %>
+            <div class="flex items-center justify-between text-sm text-gray-500">
+              <% if post.published_at.present? %>
+                <span><%= post.published_at.strftime("%d/%m/%Y") %></span>
+              <% end %>
+              <%= link_to "Đọc thêm →", post_path(post.slug), 
+                  class: "text-blue-600 hover:underline" %>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    </div>
+
+    <!-- Pagination -->
+    <% if @pagy.pages > 1 %>
+      <div class="mt-8 flex justify-center">
+        <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+      </div>
+    <% end %>
+  <% else %>
+    <p class="text-gray-600">Chưa có bài viết nào.</p>
+  <% end %>
+</div>
+

@@ -1,0 +1,29 @@
+# config/database.yml
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+  username: <%= ENV.fetch("PGUSER", "postgres") %>
+  password: <%= ENV.fetch("PGPASSWORD", "") %>
+  host: <%= ENV.fetch("PGHOST", "127.0.0.1") %>
+  port: <%= ENV.fetch("PGPORT", 5432) %>
+
+development:
+  primary:
+    <<: *default
+    database: <%= ENV.fetch("PGDATABASE", "kdn_development") %>
+  cable:
+    <<: *default
+    database: <%= ENV.fetch("PGDATABASE_CABLE", "kdn_cable_development") %>
+    migrations_paths: db/cable_migrate
+  # nếu bạn dùng Solid Queue:
+  queue:
+    <<: *default
+    database: <%= ENV.fetch("PGDATABASE_QUEUE", "kdn_queue_development") %>
+    migrations_paths: db/queue_migrate
+  # nếu bạn dùng Solid Cache:
+  cache:
+    <<: *default
+    database: <%= ENV.fetch("PGDATABASE_CACHE", "kdn_cache_development") %>
+    migrations_paths: db/cache_migrate
+

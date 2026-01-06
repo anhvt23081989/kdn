@@ -1,0 +1,113 @@
+<div class="container mx-auto px-4 py-8">
+  <nav class="mb-4 text-sm text-gray-600">
+    <%= link_to "Trang chủ", root_path, class: "hover:text-blue-600" %> /
+    <%= link_to "Sản phẩm", products_path, class: "hover:text-blue-600" %> /
+    <%= link_to @product.category.name, products_path(category_slug: @product.category.slug), class: "hover:text-blue-600" %> /
+    <span class="text-gray-900"><%= @product.name %></span>
+  </nav>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+    <!-- Product Images -->
+    <div>
+      <% if @product.images.attached? %>
+        <div class="mb-4">
+          <%= image_tag @product.images.first, class: "w-full rounded-lg shadow-md" %>
+        </div>
+        <% if @product.images.count > 1 %>
+          <div class="grid grid-cols-4 gap-2">
+            <% @product.images.each do |image| %>
+              <%= image_tag image, class: "w-full h-20 object-cover rounded cursor-pointer hover:opacity-75" %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <!-- Product Info -->
+    <div>
+      <h1 class="text-3xl font-bold mb-4"><%= @product.name %></h1>
+      
+      <% if @product.sku.present? %>
+        <p class="text-gray-600 mb-4">SKU: <span class="font-semibold"><%= @product.sku %></span></p>
+      <% end %>
+
+      <div class="mb-6">
+        <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+          <%= @product.category.name %>
+        </span>
+        <% if @product.featured? %>
+          <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm ml-2">
+            Nổi bật
+          </span>
+        <% end %>
+      </div>
+
+      <!-- Description -->
+      <% if @product.description.present? %>
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold mb-2">Mô tả</h2>
+          <div class="prose max-w-none">
+            <%= @product.description %>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- Specification -->
+      <% if @product.specification.present? %>
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold mb-2">Thông số kỹ thuật</h2>
+          <div class="prose max-w-none">
+            <%= @product.specification %>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- Manual -->
+      <% if @product.manual.present? %>
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold mb-2">Hướng dẫn sử dụng</h2>
+          <div class="prose max-w-none">
+            <%= @product.manual %>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- Properties -->
+      <% if @product.properties.present? %>
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold mb-2">Thông tin bổ sung</h2>
+          <dl class="grid grid-cols-2 gap-2">
+            <% @product.properties.each do |key, value| %>
+              <dt class="font-semibold"><%= key %>:</dt>
+              <dd><%= value %></dd>
+            <% end %>
+          </dl>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  <% if @related_products.any? %>
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold mb-6">Sản phẩm liên quan</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <% @related_products.each do |product| %>
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <% if product.images.attached? %>
+              <%= link_to product_path(product.slug) do %>
+                <%= image_tag product.images.first, class: "w-full h-48 object-cover" %>
+              <% end %>
+            <% end %>
+            <div class="p-4">
+              <h3 class="font-semibold text-lg mb-2">
+                <%= link_to product.name, product_path(product.slug), class: "hover:text-blue-600" %>
+              </h3>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+</div>
+

@@ -1,0 +1,137 @@
+<div class="border-t border-gray-200">
+  <ul class="flex items-center space-x-6 py-3">
+    <li><%= link_to "VỀ HUGE", root_path(anchor: "about"), class: "text-gray-700 hover:text-blue-600 font-medium" %></li>
+    
+    <!-- SEN VÒI Mega Menu -->
+    <li class="relative mega-menu-group">
+      <%= link_to "SEN VÒI", "#", class: "text-gray-700 hover:text-blue-600 font-medium" %>
+      <div class="mega-menu absolute left-0 top-full mt-2 w-screen max-w-6xl bg-white shadow-2xl rounded-lg p-6 opacity-0 invisible transition-all duration-300 z-50" style="left: 50%; transform: translateX(-50%);">
+        <div class="grid grid-cols-4 gap-6">
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3">SEN VÒI</h4>
+            <ul class="space-y-2">
+              <li><%= link_to "SEN TẮM ÂM TƯỜNG", products_path(category_slug: "sen-tam-am-tuong"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "SEN CÂY NHIỆT ĐỘ", products_path(category_slug: "sen-cay-nhiet-do"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "SEN CÂY ECO", products_path(category_slug: "sen-cay-eco"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "SEN TẮM", products_path(category_slug: "sen-tam"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "SEN TẮM ĐẶT SÀN", products_path(category_slug: "sen-tam-dat-san"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "VÒI LAVABO", products_path(category_slug: "voi-lavabo"), class: "text-gray-600 hover:text-blue-600" %></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3">BỘ SƯU TẬP</h4>
+            <ul class="space-y-2">
+              <li><%= link_to "ALADDIN SERIES", products_path(category_slug: "aladdin-series"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "ALICE SERIES", products_path(category_slug: "alice-series"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "ALLEN SERIES", products_path(category_slug: "allen-series"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "BLACK SERIES", products_path(category_slug: "black-series"), class: "text-gray-600 hover:text-blue-600" %></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3">TIN TỨC</h4>
+            <ul class="space-y-2">
+              <li><%= link_to "Thông tin hữu ích", posts_path, class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "Góc văn hóa", posts_path, class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "Video", videos_path, class: "text-gray-600 hover:text-blue-600" %></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3">HỆ THỐNG ĐẠI LÝ</h4>
+            <ul class="space-y-2">
+              <li><%= link_to "Tìm đại lý gần nhất", "#", class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "Đăng ký làm đại lý", "#", class: "text-gray-600 hover:text-blue-600" %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- BỒN CẦU Mega Menu -->
+    <li class="relative mega-menu-group">
+      <%= link_to "BỒN CẦU", "#", class: "text-gray-700 hover:text-blue-600 font-medium" %>
+      <div class="mega-menu absolute left-0 top-full mt-2 w-screen max-w-6xl bg-white shadow-2xl rounded-lg p-6 opacity-0 invisible transition-all duration-300 z-50" style="left: 50%; transform: translateX(-50%);">
+        <div class="grid grid-cols-4 gap-6">
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3">BỒN CẦU</h4>
+            <ul class="space-y-2">
+              <li><%= link_to "BỒN CẦU THÔNG MINH", products_path(category_slug: "bon-cau-thong-minh"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "BỒN CẦU BÁN THÔNG MINH", products_path(category_slug: "bon-cau-ban-thong-minh"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "BỒN CẦU MỘT KHỐI", products_path(category_slug: "bon-cau-mot-khoi"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "BỒN CẦU TREO TƯỜNG", products_path(category_slug: "bon-cau-treo-tuong"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "NẮP BỒN CẦU THÔNG MINH", products_path(category_slug: "nap-bon-cau-thong-minh"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "TIỂU NAM", products_path(category_slug: "tieu-nam"), class: "text-gray-600 hover:text-blue-600" %></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3">BỘ SƯU TẬP</h4>
+            <ul class="space-y-2">
+              <li><%= link_to "COSTA SERIES", products_path(category_slug: "costa-series"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "ELEGANT SERIES", products_path(category_slug: "elegant-series"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "JOYCE SERIES", products_path(category_slug: "joyce-series"), class: "text-gray-600 hover:text-blue-600" %></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3">TIN TỨC</h4>
+            <ul class="space-y-2">
+              <li><%= link_to "Thông tin hữu ích", posts_path, class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "Góc văn hóa", posts_path, class: "text-gray-600 hover:text-blue-600" %></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3">HỆ THỐNG ĐẠI LÝ</h4>
+            <ul class="space-y-2">
+              <li><%= link_to "Tìm đại lý gần nhất", "#", class: "text-gray-600 hover:text-blue-600" %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- LAVABO Mega Menu -->
+    <li class="relative mega-menu-group">
+      <%= link_to "LAVABO", "#", class: "text-gray-700 hover:text-blue-600 font-medium" %>
+      <div class="mega-menu absolute left-0 top-full mt-2 w-screen max-w-6xl bg-white shadow-2xl rounded-lg p-6 opacity-0 invisible transition-all duration-300 z-50" style="left: 50%; transform: translateX(-50%);">
+        <div class="grid grid-cols-4 gap-6">
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3">LAVABO</h4>
+            <ul class="space-y-2">
+              <li><%= link_to "LAVABO ÂM BÀN", products_path(category_slug: "lavabo-am-ban"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "LAVABO BÁN ÂM BÀN", products_path(category_slug: "lavabo-ban-am-ban"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "LAVABO ĐẶT BÀN", products_path(category_slug: "lavabo-dat-ban"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "LAVABO TREO TƯỜNG", products_path(category_slug: "lavabo-treo-tuong"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "LAVABO ĐẶT SÀN", products_path(category_slug: "lavabo-dat-san"), class: "text-gray-600 hover:text-blue-600" %></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3">BỘ SƯU TẬP</h4>
+            <ul class="space-y-2">
+              <li><%= link_to "LAMBERT SERIES", products_path(category_slug: "lambert-series"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "PAMELA SERIES", products_path(category_slug: "pamela-series"), class: "text-gray-600 hover:text-blue-600" %></li>
+              <li><%= link_to "PHOENIX SERIES", products_path(category_slug: "phoenix-series"), class: "text-gray-600 hover:text-blue-600" %></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3">TIN TỨC</h4>
+            <ul class="space-y-2">
+              <li><%= link_to "Thông tin hữu ích", posts_path, class: "text-gray-600 hover:text-blue-600" %></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3">HỆ THỐNG ĐẠI LÝ</h4>
+            <ul class="space-y-2">
+              <li><%= link_to "Tìm đại lý gần nhất", "#", class: "text-gray-600 hover:text-blue-600" %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li><%= link_to "BỘ TỦ LAVABO", products_path(category_slug: "bo-tu-lavabo"), class: "text-gray-700 hover:text-blue-600 font-medium" %></li>
+    <li><%= link_to "BỒN TẮM", products_path(category_slug: "bon-tam"), class: "text-gray-700 hover:text-blue-600 font-medium" %></li>
+    <li><%= link_to "PHỤ KIỆN", products_path(category_slug: "phu-kien"), class: "text-gray-700 hover:text-blue-600 font-medium" %></li>
+    <li><%= link_to "BỘ SƯU TẬP", products_path(category_slug: "bo-suu-tap"), class: "text-gray-700 hover:text-blue-600 font-medium" %></li>
+    <li><%= link_to "TIN TỨC", posts_path, class: "text-gray-700 hover:text-blue-600 font-medium" %></li>
+    <li><%= link_to "VIDEO", videos_path, class: "text-gray-700 hover:text-blue-600 font-medium" %></li>
+  </ul>
+</div>
+

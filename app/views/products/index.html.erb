@@ -1,0 +1,61 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="flex flex-col md:flex-row gap-8">
+    <!-- Sidebar Categories -->
+    <aside class="w-full md:w-64 flex-shrink-0">
+      <h2 class="text-xl font-semibold mb-4">Danh mục</h2>
+      <nav class="space-y-2">
+        <%= link_to "Tất cả sản phẩm", products_path, 
+            class: "block px-4 py-2 rounded #{'bg-blue-600 text-white' unless @category}" %>
+        <% @categories.each do |cat| %>
+          <%= link_to cat.name, products_path(category_slug: cat.slug),
+              class: "block px-4 py-2 rounded hover:bg-gray-100 #{'bg-blue-600 text-white' if @category&.id == cat.id}" %>
+        <% end %>
+      </nav>
+    </aside>
+
+    <!-- Products Grid -->
+    <main class="flex-1">
+      <% if @category %>
+        <h1 class="text-3xl font-bold mb-6"><%= @category.name %></h1>
+      <% else %>
+        <h1 class="text-3xl font-bold mb-6">Tất cả sản phẩm</h1>
+      <% end %>
+
+      <% if @products.any? %>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <% @products.each do |product| %>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+              <% if product.images.attached? %>
+                <%= link_to product_path(product.slug) do %>
+                  <%= image_tag product.images.first, class: "w-full h-48 object-cover" %>
+                <% end %>
+              <% end %>
+              <div class="p-4">
+                <h3 class="font-semibold text-lg mb-2">
+                  <%= link_to product.name, product_path(product.slug), class: "hover:text-blue-600" %>
+                </h3>
+                <p class="text-gray-600 text-sm mb-2">
+                  <%= link_to product.category.name, products_path(category_slug: product.category.slug), 
+                      class: "hover:text-blue-600" %>
+                </p>
+                <% if product.sku.present? %>
+                  <p class="text-gray-500 text-xs">SKU: <%= product.sku %></p>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- Pagination -->
+        <% if @pagy.pages > 1 %>
+          <div class="mt-8 flex justify-center">
+            <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+          </div>
+        <% end %>
+      <% else %>
+        <p class="text-gray-600">Không có sản phẩm nào.</p>
+      <% end %>
+    </main>
+  </div>
+</div>
+

@@ -1,0 +1,277 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+/* Import Tailwind CSS - built file is in app/assets/builds/tailwind.css */
+
+/* Custom styles for HUGE website */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Header sticky behavior */
+header {
+  transition: all 0.3s ease;
+}
+
+/* Dropdown menu animations */
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Product card hover effects */
+.hover\:shadow-lg {
+  transition: box-shadow 0.3s ease;
+}
+
+/* Image lazy loading */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Link styles */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Button styles */
+button, .btn {
+  transition: all 0.2s ease;
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Form inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+textarea {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Responsive images */
+.responsive-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Container max width */
+.container {
+  max-width: 1280px;
+}
+
+/* Section spacing */
+section {
+  margin-bottom: 3rem;
+}
+
+/* Text utilities - removed text-wrap for browser compatibility */
+
+/* Grid gap utilities */
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+/* Pagination styles */
+.pagy-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.pagy-nav a {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  color: #374151;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.pagy-nav a:hover {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.pagy-nav .active {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+/* Mobile menu toggle (for future mobile responsiveness) */
+@media (max-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+  
+  .mobile-menu.active {
+    display: block;
+  }
+}
+
+/* Print styles */
+@media print {
+  header, footer, nav {
+    display: none;
+  }
+}
+
+/* Tab styles */
+.tab-button.active {
+  border-bottom-color: #3b82f6 !important;
+  color: #3b82f6 !important;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Mega menu styles */
+.mega-menu-group {
+  position: relative;
+}
+
+.mega-menu {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mega-menu-group:hover .mega-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Modal styles */
+#catalogueModal {
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  display: none;
+}
+
+#catalogueModal[style*="flex"] {
+  display: flex !important;
+}
+
+/* Stable height for product grids to avoid layout shift */
+.product-grid-bon-cau,
+.product-grid-lavabo,
+.product-grid-sen-voi,
+.product-grid-phu-kien {
+  min-height: 400px;
+}
+
+/* Mega menu styles */
+.mega-menu-group {
+  position: relative;
+}
+
+.mega-menu-group:hover .mega-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.mega-menu {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}

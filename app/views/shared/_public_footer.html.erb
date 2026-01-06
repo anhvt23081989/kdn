@@ -1,0 +1,65 @@
+<footer class="bg-gray-900 text-white mt-16">
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Company Info -->
+      <div>
+        <h3 class="text-lg font-bold mb-4">CÔNG TY CỔ PHẦN SMART BKG</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li>Hotline: <a href="tel:19000225" class="hover:text-white">1900 0225</a></li>
+          <li>Email: <a href="mailto:info@bkgsmart.com.vn" class="hover:text-white">info@bkgsmart.com.vn</a></li>
+          <li>Địa chỉ: Số 217, Khu DV Đồng Mới, Xã An Khánh, TP Hà Nội</li>
+        </ul>
+      </div>
+
+      <!-- Product Categories -->
+      <div>
+        <h3 class="text-lg font-bold mb-4">DANH MỤC SẢN PHẨM</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li><%= link_to "Bồn cầu", products_path(category_slug: "bon-cau"), class: "hover:text-white" %></li>
+          <li><%= link_to "Lavabo", products_path(category_slug: "lavabo"), class: "hover:text-white" %></li>
+          <li><%= link_to "Sen vòi", products_path(category_slug: "sen-voi"), class: "hover:text-white" %></li>
+          <li><%= link_to "Phụ kiện", products_path(category_slug: "phu-kien"), class: "hover:text-white" %></li>
+          <li><%= link_to "Bồn tắm", products_path(category_slug: "bon-tam"), class: "hover:text-white" %></li>
+          <li><%= link_to "Bộ sưu tập", products_path(category_slug: "bo-suu-tap"), class: "hover:text-white" %></li>
+        </ul>
+      </div>
+
+      <!-- Support Policies -->
+      <div>
+        <h3 class="text-lg font-bold mb-4">CHÍNH SÁCH HỖ TRỢ</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li><%= link_to "Chính sách bảo mật", page_path("chinh-sach-bao-mat"), class: "hover:text-white" %></li>
+          <li><%= link_to "Chính sách vận chuyển", page_path("chinh-sach-van-chuyen"), class: "hover:text-white" %></li>
+          <li><%= link_to "Chính sách đổi trả", page_path("chinh-sach-doi-tra"), class: "hover:text-white" %></li>
+          <li><%= link_to "Chính sách bảo hành", page_path("chinh-sach-bao-hanh"), class: "hover:text-white" %></li>
+        </ul>
+      </div>
+
+      <!-- Google Map / Contact -->
+      <div>
+        <h3 class="text-lg font-bold mb-4">GOOGLE MAP</h3>
+        <p class="text-gray-300 mb-4">CÔNG TY CỔ PHẦN SMART BKG</p>
+        <div class="mt-4">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096509466592!2d105.7805234!3d21.0285114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDAxJzQyLjYiTiAxMDXCsDQ2JzQ5LjkiRQ!5e0!3m2!1sen!2sus!4v1234567890" 
+            width="100%" 
+            height="200" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            class="rounded-lg">
+          </iframe>
+        </div>
+        <div class="space-y-2 text-gray-300 mt-4">
+          <p><%= link_to "VỀ HUGE", root_path(anchor: "about"), class: "hover:text-white" %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+      <p>&copy; <%= Date.current.year %> HUGE. Tất cả quyền được bảo lưu.</p>
+    </div>
+  </div>
+</footer>
+

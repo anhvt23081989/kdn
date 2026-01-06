@@ -1,0 +1,60 @@
+<!-- Catalogue Modal -->
+<div id="catalogueModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center" style="display: none;">
+  <div class="bg-white rounded-lg max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+    <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+      <h2 class="text-2xl font-bold">ĐĂNG KÝ NHẬN CATALOGUE</h2>
+      <button onclick="closeCatalogueModal()" class="text-gray-400 hover:text-gray-600">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="p-6">
+      <%= form_with model: @lead || Lead.new, url: leads_path, local: true, id: "catalogueForm", class: "space-y-4" do |form| %>
+        <%= form.hidden_field :source, value: "catalogue" %>
+
+        <div id="formErrors" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+          <ul id="errorList" class="list-disc list-inside"></ul>
+        </div>
+
+        <div id="formSuccess" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+          Cảm ơn bạn đã đăng ký! Chúng tôi sẽ liên hệ với bạn sớm nhất.
+        </div>
+
+        <div>
+          <%= form.label :name, "Họ và tên *", class: "block text-gray-700 text-sm font-bold mb-2" %>
+          <%= form.text_field :name, class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500", required: true %>
+        </div>
+
+        <div>
+          <%= form.label :email, "Email *", class: "block text-gray-700 text-sm font-bold mb-2" %>
+          <%= form.email_field :email, class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500", required: true %>
+        </div>
+
+        <div>
+          <%= form.label :phone, "Số điện thoại *", class: "block text-gray-700 text-sm font-bold mb-2" %>
+          <%= form.telephone_field :phone, class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500", required: true %>
+        </div>
+
+        <div>
+          <%= form.label :address, "Địa chỉ", class: "block text-gray-700 text-sm font-bold mb-2" %>
+          <%= form.text_field :address, class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+        </div>
+
+        <div>
+          <%= form.label :message, "Lời nhắn", class: "block text-gray-700 text-sm font-bold mb-2" %>
+          <%= form.text_area :message, rows: 4, class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+        </div>
+
+        <div class="flex items-center justify-between pt-4">
+          <%= form.submit "Đăng ký ngay", class: "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer" %>
+          <button type="button" onclick="closeCatalogueModal()" class="text-gray-600 hover:text-gray-800">
+            Hủy
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

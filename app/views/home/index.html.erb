@@ -1,0 +1,137 @@
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 mb-12">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-5xl font-bold mb-4">HUGE - Thiết Bị Nhà Tắm Thông Minh</h1>
+    <p class="text-xl mb-8">Số 1 về giải pháp bồn cầu thông minh</p>
+    <%= link_to "Xem sản phẩm", products_path, class: "inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition" %>
+  </div>
+</section>
+
+<!-- Value Props Section (4 cards) -->
+<section class="container mx-auto px-4 mb-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="text-center">
+      <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Bảo hành lâu dài</h3>
+      <p class="text-gray-600">HUGE sử dụng công nghệ tem bảo hành điện tử được bảo hộ độc quyền chính hãng. Thời gian bảo hành lên tới 10 năm, bảo trì trọn đời sản phẩm.</p>
+    </div>
+
+    <div class="text-center">
+      <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Yên tâm khi sử dụng</h3>
+      <p class="text-gray-600">Chúng tôi hiểu điều gì là tốt nhất đối với mỗi sản phẩm. Mỗi một sản phẩm đều được HUGE kiểm định kỹ lưỡng trước khi đưa tới khách hàng.</p>
+    </div>
+
+    <div class="text-center">
+      <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Đa dạng lựa chọn</h3>
+      <p class="text-gray-600">Bạn có biết thiết bị vệ sinh HUGE là một trong những thương hiệu thiết bị vệ sinh có số lượng sản phẩm nhiều hàng đầu trên thị trường với hơn 500 đại lý trên toàn quốc.</p>
+    </div>
+
+    <div class="text-center">
+      <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Tiêu chuẩn Châu Âu</h3>
+      <p class="text-gray-600">Sản phẩm đạt tiêu chuẩn UPC xuất USA, Tiêu chuẩn CE đối với sản phẩm được bán trong khu vực kinh tế Châu Âu (EEA), Tiêu chuẩn ISO 9001, Tiêu chuẩn RoHS.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Category Blocks with Tabs -->
+<% if @bon_cau_category %>
+  <%= render partial: 'category_block', locals: { 
+    category: @bon_cau_category, 
+    subcategories: @bon_cau_subcategories,
+    products: @bon_cau_products,
+    category_slug: 'bon-cau'
+  } %>
+<% end %>
+
+<% if @lavabo_category %>
+  <%= render partial: 'category_block', locals: { 
+    category: @lavabo_category, 
+    subcategories: @lavabo_subcategories,
+    products: @lavabo_products,
+    category_slug: 'lavabo'
+  } %>
+<% end %>
+
+<% if @sen_voi_category %>
+  <%= render partial: 'category_block', locals: { 
+    category: @sen_voi_category, 
+    subcategories: @sen_voi_subcategories,
+    products: @sen_voi_products,
+    category_slug: 'sen-voi'
+  } %>
+<% end %>
+
+<% if @phu_kien_category %>
+  <%= render partial: 'category_block', locals: { 
+    category: @phu_kien_category, 
+    subcategories: @phu_kien_subcategories,
+    products: @phu_kien_products,
+    category_slug: 'phu-kien'
+  } %>
+<% end %>
+
+<!-- Featured News Section -->
+<% if @latest_posts.any? %>
+  <section class="container mx-auto px-4 py-12 mb-12">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-3xl font-bold">TIN TỨC NỔI BẬT</h2>
+      <%= link_to "Xem tất cả", posts_path, class: "text-blue-600 hover:text-blue-800 font-semibold" %>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% @latest_posts.each do |post| %>
+        <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+          <% if post.cover.attached? %>
+            <%= link_to post_path(post.slug) do %>
+              <%= image_tag post.cover, class: "w-full h-48 object-cover" %>
+            <% end %>
+          <% end %>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg mb-2">
+              <%= link_to post.title, post_path(post.slug), class: "hover:text-blue-600" %>
+            </h3>
+            <% if post.excerpt.present? %>
+              <p class="text-gray-600 text-sm mb-2"><%= truncate(post.excerpt, length: 100) %></p>
+            <% end %>
+            <% if post.published_at.present? %>
+              <p class="text-gray-400 text-xs"><%= post.published_at.strftime("%d/%m/%Y") %></p>
+            <% end %>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </section>
+<% end %>
+
+<!-- About Section -->
+<section id="about" class="bg-gray-50 py-12">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-6 text-center">VỀ HUGE</h2>
+    <div class="max-w-4xl mx-auto text-gray-700">
+      <p class="text-lg mb-4">
+        HUGE là thương hiệu thiết bị vệ sinh thông minh hàng đầu, chuyên cung cấp các giải pháp bồn cầu thông minh và thiết bị nhà tắm cao cấp. Với hơn 500 đại lý trên toàn quốc, HUGE cam kết mang đến cho khách hàng những sản phẩm chất lượng cao, đạt tiêu chuẩn quốc tế.
+      </p>
+      <p class="mb-4">
+        Chúng tôi tự hào về công nghệ tem bảo hành điện tử độc quyền, với thời gian bảo hành lên tới 10 năm và dịch vụ bảo trì trọn đời. Mỗi sản phẩm đều được kiểm định kỹ lưỡng trước khi đến tay khách hàng, đảm bảo chất lượng và độ an toàn tuyệt đối.
+      </p>
+    </div>
+  </div>
+</section>
