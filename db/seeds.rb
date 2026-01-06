@@ -7,4 +7,25 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+# Create AdminUser for Active Admin
+AdminUser.find_or_create_by!(email: 'admin@example.com') do |admin|
+  admin.password = 'password'
+  admin.password_confirmation = 'password'
+end if Rails.env.development?
+
+# Create User with admin role (optional, for testing)
+User.find_or_create_by!(email: 'admin@tarin.com.vn') do |user|
+  user.password = 'password123'
+  user.password_confirmation = 'password123'
+  user.role = :admin
+  user.confirmed_at = Time.current
+end if Rails.env.development?
+
+# Create User with guest role (optional, for testing)
+User.find_or_create_by!(email: 'guest@tarin.com.vn') do |user|
+  user.password = 'password123'
+  user.password_confirmation = 'password123'
+  user.role = :guest
+  user.confirmed_at = Time.current
+end if Rails.env.development?

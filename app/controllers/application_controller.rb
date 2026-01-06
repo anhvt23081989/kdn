@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   # Make methods available to views
   # Note: current_admin_user is automatically provided by Devise when devise_for :admin_users is in routes
-  helper_method :admin_user_signed_in?, :current_locale
+  helper_method :admin_user_signed_in?, :current_locale, :user_admin?, :user_guest?
 
   private
 
@@ -32,6 +32,16 @@ class ApplicationController < ActionController::Base
 
   def current_locale
     I18n.locale
+  end
+
+  # Check if current user is admin
+  def user_admin?
+    user_signed_in? && current_user.admin?
+  end
+
+  # Check if current user is guest
+  def user_guest?
+    user_signed_in? && current_user.guest?
   end
 
   def default_url_options(options = {})
