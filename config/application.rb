@@ -23,5 +23,9 @@ module Kdn
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    
+    # Asset pipeline configuration
+    # With Propshaft, assets are served directly in development
+    config.assets.enabled = true
   end
 end

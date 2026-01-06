@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   root "home#index"
 
-  devise_for :users
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+  }
+  devise_for :admin_users, ActiveAdmin::Devise.config.merge(controllers: {
+    sessions: 'admin_users/sessions'
+  })
   ActiveAdmin.routes(self)
 
   get  "/shop", to: "products#index"

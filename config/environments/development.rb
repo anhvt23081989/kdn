@@ -61,6 +61,22 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # Enable asset debugging and live reload
+  # With Propshaft, assets are served directly from source in development
+  config.assets.debug = true
+  config.assets.compile = true
+  
+  # Disable asset caching in development for live reload
+  config.assets.cache_store = :null_store
+  
+  # Disable public file server caching for assets
+  config.public_file_server.enabled = true
+  config.public_file_server.headers = {
+    'Cache-Control' => 'no-cache, no-store, must-revalidate',
+    'Pragma' => 'no-cache',
+    'Expires' => '0'
+  }
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

@@ -1,0 +1,110 @@
+<div class="auth-page">
+  <div class="auth-page-wrapper">
+    <div class="auth-page-content">
+      <div class="auth-card">
+        <!-- Logo/Brand -->
+        <div class="auth-brand text-center mb-4">
+          <a href="<%= root_path %>" class="logo logo-dark">
+            <span class="logo-lg">
+              <span class="logo-text text-3xl font-bold text-white">HUGE</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- Title -->
+        <div class="text-center mb-4">
+          <h4 class="auth-title">Chỉnh sửa tài khoản</h4>
+          <p class="auth-subtitle">Cập nhật thông tin tài khoản của bạn</p>
+        </div>
+
+        <!-- Form -->
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :patch, class: "auth-form" }) do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
+
+          <div class="form-group mb-3">
+            <%= f.label :email, "Email", class: "form-label" %>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="mdi mdi-email-outline"></i>
+              </span>
+              <%= f.email_field :email, 
+                    autofocus: true, 
+                    autocomplete: "email",
+                    class: "form-control" %>
+            </div>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div class="alert alert-warning">
+              <i class="mdi mdi-alert-outline me-2"></i>
+              Đang chờ xác nhận cho: <strong><%= resource.unconfirmed_email %></strong>
+            </div>
+          <% end %>
+
+          <div class="form-group mb-3">
+            <%= f.label :password, "Mật khẩu mới", class: "form-label" %>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="mdi mdi-lock-outline"></i>
+              </span>
+              <%= f.password_field :password, 
+                    autocomplete: "new-password",
+                    placeholder: "Để trống nếu không muốn thay đổi",
+                    class: "form-control" %>
+            </div>
+            <% if @minimum_password_length %>
+              <small class="form-text text-muted">Tối thiểu <%= @minimum_password_length %> ký tự (để trống nếu không đổi)</small>
+            <% end %>
+          </div>
+
+          <div class="form-group mb-3">
+            <%= f.label :password_confirmation, "Xác nhận mật khẩu mới", class: "form-label" %>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="mdi mdi-lock-check-outline"></i>
+              </span>
+              <%= f.password_field :password_confirmation, 
+                    autocomplete: "new-password",
+                    placeholder: "Nhập lại mật khẩu mới",
+                    class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group mb-3">
+            <%= f.label :current_password, "Mật khẩu hiện tại", class: "form-label" %>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="mdi mdi-lock-alert-outline"></i>
+              </span>
+              <%= f.password_field :current_password, 
+                    autocomplete: "current-password",
+                    placeholder: "Cần mật khẩu hiện tại để xác nhận",
+                    class: "form-control" %>
+            </div>
+            <small class="form-text text-muted">Cần mật khẩu hiện tại để xác nhận thay đổi</small>
+          </div>
+
+          <div class="form-group mb-0">
+            <%= f.submit "Cập nhật", class: "btn btn-primary w-100" %>
+          </div>
+        <% end %>
+
+        <!-- Cancel Account -->
+        <div class="text-center mt-4">
+          <p class="text-muted mb-2">Không hài lòng?</p>
+          <%= link_to "Hủy tài khoản", registration_path(resource_name), 
+                data: { confirm: "Bạn có chắc chắn muốn hủy tài khoản? Hành động này không thể hoàn tác." }, 
+                method: :delete, 
+                class: "btn btn-link text-danger" %>
+        </div>
+      </div>
+
+      <!-- Footer Links -->
+      <div class="auth-footer text-center">
+        <p class="text-muted">
+          © <%= Date.current.year %> HUGE. Bản quyền thuộc về Công ty Cổ phần SMART BKG
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
