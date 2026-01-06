@@ -20,6 +20,29 @@
           <%= render 'shared/language_switcher' %>
         </div>
 
+        <!-- Alert Messages -->
+        <% if alert.present? %>
+          <div class="alert alert-danger mb-3" role="alert">
+            <div class="d-flex align-items-start">
+              <i class="mdi mdi-alert-circle me-2" style="font-size: 20px;"></i>
+              <div class="flex-grow-1">
+                <%= alert %>
+                <% if flash[:email].present? || (resource && resource.email.present?) %>
+                  <div class="mt-2">
+                    <%= link_to t('auth.resend_confirmation'), new_user_confirmation_path(email: flash[:email] || resource.email), class: "btn btn-sm btn-outline-primary" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        
+        <% if notice.present? %>
+          <div class="alert alert-success mb-3" role="alert">
+            <%= notice %>
+          </div>
+        <% end %>
+
         <!-- Form -->
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "auth-form" }) do |f| %>
           <%= render "users/shared/error_messages", resource: resource %>

@@ -38,6 +38,25 @@ vi:
     enter_new_password: "Nhập mật khẩu mới của bạn"
     admin_login: "Đăng nhập Admin"
     admin_login_subtitle: "Vui lòng đăng nhập để truy cập trang quản trị"
+    unconfirmed: "Bạn cần xác nhận email trước khi đăng nhập. Vui lòng kiểm tra email của bạn."
+    confirmation_sent: "Một email xác nhận đã được gửi đến địa chỉ email của bạn. Vui lòng kiểm tra và click vào link để kích hoạt tài khoản."
+    confirmed: "Email của bạn đã được xác nhận thành công. Bây giờ bạn có thể đăng nhập."
+    resend_confirmation: "Gửi lại email xác nhận"
+    confirmation_instructions_title: "Xác nhận tài khoản của bạn"
+    confirmation_instructions_subtitle: "Vui lòng kiểm tra email để hoàn tất đăng ký"
+    check_your_email: "Kiểm tra email của bạn"
+    confirmation_email_sent: "Một email xác nhận đã được gửi đến địa chỉ email của bạn."
+    confirmation_email_sent_to: "Một email xác nhận đã được gửi đến: %{email}"
+    click_confirmation_link: "Vui lòng click vào link trong email để kích hoạt tài khoản của bạn."
+    confirmation_steps_title: "Hướng dẫn xác nhận:"
+    step1_title: "Kiểm tra hộp thư đến"
+    step1_description: "Mở email từ KDN trong hộp thư đến của bạn (có thể ở thư mục Spam/Junk)"
+    step2_title: "Click vào link xác nhận"
+    step2_description: "Tìm và click vào link 'Xác nhận tài khoản' trong email"
+    step3_title: "Đăng nhập"
+    step3_description: "Sau khi xác nhận thành công, bạn có thể đăng nhập vào tài khoản"
+    didnt_receive_email: "Không nhận được email?"
+    registration_error: "Có lỗi xảy ra khi đăng ký. Vui lòng thử lại."
   
   form:
     email: "Email"
@@ -110,4 +129,38 @@ vi:
     error: "Có lỗi xảy ra"
     success: "Thành công"
     language: "Ngôn ngữ"
+  
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "Email đã được sử dụng"
+              invalid: "Email không hợp lệ"
+              blank: "Email không được để trống"
+            password:
+              too_short: "Mật khẩu quá ngắn (tối thiểu %{count} ký tự)"
+              blank: "Mật khẩu không được để trống"
+            password_confirmation:
+              confirmation: "Xác nhận mật khẩu không khớp"
+      messages:
+        taken: "đã được sử dụng"
+        invalid: "không hợp lệ"
+        blank: "không được để trống"
+        too_short: "quá ngắn (tối thiểu %{count} ký tự)"
+        confirmation: "không khớp"
+  
+  errors:
+    messages:
+      taken: "đã được sử dụng"
+      invalid: "không hợp lệ"
+      blank: "không được để trống"
+      too_short: "quá ngắn (tối thiểu %{count} ký tự)"
+      confirmation: "không khớp"
+    attributes:
+      email:
+        taken: "Email đã được sử dụng"
+        invalid: "Email không hợp lệ"
+        blank: "Email không được để trống"
 

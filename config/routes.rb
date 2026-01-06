@@ -6,8 +6,12 @@ Rails.application.routes.draw do
     devise_for :users, controllers: {
       sessions: 'users/sessions',
       registrations: 'users/registrations',
-      passwords: 'users/passwords'
+      passwords: 'users/passwords',
+      confirmations: 'users/confirmations'
     }
+    
+    # Confirmation instructions page
+    get "/confirmation-instructions", to: "users/confirmations_instructions#show", as: :confirmation_instructions
     devise_for :admin_users, ActiveAdmin::Devise.config.merge(controllers: {
       sessions: 'admin_users/sessions'
     })

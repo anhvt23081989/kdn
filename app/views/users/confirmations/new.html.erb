@@ -1,16 +1,69 @@
-<h2>Resend confirmation instructions</h2>
+<div class="auth-page">
+  <div class="auth-page-wrapper">
+    <div class="auth-page-content">
+      <div class="auth-card">
+        <!-- Logo/Brand -->
+        <div class="auth-brand text-center mb-4">
+          <a href="<%= root_path %>" class="logo logo-dark">
+            <%= image_tag "logo.jpg", alt: "KDN", class: "logo-image", style: "max-height: 60px; width: auto;" %>
+          </a>
+        </div>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+        <!-- Title -->
+        <div class="text-center mb-4">
+          <h4 class="auth-title"><%= t('auth.resend_confirmation') %></h4>
+          <p class="auth-subtitle">Nhập email để nhận lại link xác nhận</p>
+        </div>
+        
+        <!-- Language Switcher -->
+        <div class="text-center mb-4">
+          <%= render 'shared/language_switcher' %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+        <!-- Form -->
+        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "auth-form" }) do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
+
+          <div class="form-group mb-3">
+            <%= f.label :email, t('form.email'), class: "form-label" %>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="mdi mdi-email-outline"></i>
+              </span>
+              <%= f.email_field :email, 
+                    autofocus: true, 
+                    autocomplete: "email",
+                    value: params[:email] || (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+                    placeholder: t('form.enter_email'),
+                    class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group mb-0">
+            <%= f.submit t('auth.resend_confirmation'), class: "btn btn-primary w-100" %>
+          </div>
+        <% end %>
+        
+        <% if notice.present? %>
+          <div class="alert alert-success mt-3" role="alert">
+            <%= notice %>
+          </div>
+        <% end %>
+
+        <!-- Footer -->
+        <div class="text-center mt-4">
+          <p class="text-muted">
+            <%= link_to t('auth.back_to_login'), new_session_path(resource_name), class: "text-primary fw-semibold" %>
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer Links -->
+      <div class="auth-footer text-center">
+        <p class="text-muted">
+          <%= t('footer.copyright_text', year: Date.current.year) %>
+        </p>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

@@ -1,5 +1,38 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <h1 style="color: #3b82f6; margin-top: 20px;">KDN</h1>
+        <p style="color: #666; font-size: 14px;">Thiết Bị Nhà Tắm Thông Minh</p>
+      </div>
+      
+      <h2 style="color: #333;">Xác nhận tài khoản của bạn</h2>
+      
+      <p>Xin chào <%= @email %>!</p>
+      
+      <p>Cảm ơn bạn đã đăng ký tài khoản tại KDN. Để hoàn tất việc đăng ký, vui lòng xác nhận email của bạn bằng cách click vào link bên dưới:</p>
+      
+      <div style="text-align: center; margin: 30px 0;">
+        <%= link_to 'Xác nhận tài khoản', confirmation_url(@resource, confirmation_token: @token), 
+            style: "background-color: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;" %>
+      </div>
+      
+      <p>Nếu link không hoạt động, bạn có thể copy và paste URL sau vào trình duyệt:</p>
+      <p style="word-break: break-all; color: #666; font-size: 12px;"><%= confirmation_url(@resource, confirmation_token: @token) %></p>
+      
+      <p style="margin-top: 30px; color: #666; font-size: 12px;">
+        Nếu bạn không đăng ký tài khoản này, vui lòng bỏ qua email này.
+      </p>
+      
+      <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+      
+      <p style="color: #999; font-size: 12px; text-align: center;">
+        © <%= Date.current.year %> KDN. Bản quyền thuộc về Công ty Cổ phần SMART BKG
+      </p>
+    </div>
+  </body>
+</html>

@@ -38,6 +38,25 @@ en:
     enter_new_password: "Enter your new password"
     admin_login: "Admin Login"
     admin_login_subtitle: "Please log in to access the admin panel"
+    unconfirmed: "You need to confirm your email before signing in. Please check your email."
+    confirmation_sent: "A confirmation email has been sent to your email address. Please check and click the link to activate your account."
+    confirmed: "Your email has been successfully confirmed. You can now sign in."
+    resend_confirmation: "Resend confirmation email"
+    confirmation_instructions_title: "Confirm Your Account"
+    confirmation_instructions_subtitle: "Please check your email to complete registration"
+    check_your_email: "Check Your Email"
+    confirmation_email_sent: "A confirmation email has been sent to your email address."
+    confirmation_email_sent_to: "A confirmation email has been sent to: %{email}"
+    click_confirmation_link: "Please click the link in the email to activate your account."
+    confirmation_steps_title: "Confirmation Steps:"
+    step1_title: "Check your inbox"
+    step1_description: "Open the email from KDN in your inbox (may be in Spam/Junk folder)"
+    step2_title: "Click the confirmation link"
+    step2_description: "Find and click the 'Confirm Account' link in the email"
+    step3_title: "Sign in"
+    step3_description: "After successful confirmation, you can sign in to your account"
+    didnt_receive_email: "Didn't receive the email?"
+    registration_error: "An error occurred during registration. Please try again."
   
   form:
     email: "Email"
@@ -110,3 +129,37 @@ en:
     error: "An error occurred"
     success: "Success"
     language: "Language"
+  
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "Email has already been taken"
+              invalid: "Email is invalid"
+              blank: "Email can't be blank"
+            password:
+              too_short: "Password is too short (minimum is %{count} characters)"
+              blank: "Password can't be blank"
+            password_confirmation:
+              confirmation: "Password confirmation doesn't match"
+      messages:
+        taken: "has already been taken"
+        invalid: "is invalid"
+        blank: "can't be blank"
+        too_short: "is too short (minimum is %{count} characters)"
+        confirmation: "doesn't match"
+  
+  errors:
+    messages:
+      taken: "has already been taken"
+      invalid: "is invalid"
+      blank: "can't be blank"
+      too_short: "is too short (minimum is %{count} characters)"
+      confirmation: "doesn't match"
+    attributes:
+      email:
+        taken: "Email has already been taken"
+        invalid: "Email is invalid"
+        blank: "Email can't be blank"

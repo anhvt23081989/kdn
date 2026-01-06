@@ -32,6 +32,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
+  # Set to false to prevent registration from failing if email can't be sent
   config.action_mailer.raise_delivery_errors = false
 
   # Make template changes take effect immediately.
@@ -39,6 +40,28 @@ Rails.application.configure do
 
   # Set localhost to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  
+  # Mail delivery method for development
+  # Use :file to save emails to tmp/mails directory (for testing)
+  # Or configure SMTP if you have credentials
+  if ENV['SMTP_USERNAME'].present? && ENV['SMTP_PASSWORD'].present?
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: 'smtp.gmail.com',
+      port: 587,
+      domain: 'gmail.com',
+      user_name: ENV['SMTP_USERNAME'],
+      password: ENV['SMTP_PASSWORD'],
+      authentication: 'plain',
+      enable_starttls_auto: true
+    }
+  else
+    # Save emails to file for development (check tmp/mails directory)
+    config.action_mailer.delivery_method = :file
+    config.action_mailer.file_settings = {
+      location: Rails.root.join('tmp', 'mails')
+    }
+  end
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
