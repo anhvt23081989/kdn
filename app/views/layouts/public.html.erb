@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
-    <title><%= content_for(:title) || "HUGE - Thiết Bị Nhà Tắm Thông Minh" %></title>
+    <title><%= content_for(:title) || t('site.title') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="<%= content_for(:description) || 'HUGE - Số 1 về giải pháp bồn cầu thông minh. Thiết bị vệ sinh cao cấp, bảo hành 10 năm, đạt tiêu chuẩn Châu Âu.' %>">
-    <meta name="keywords" content="thiết bị vệ sinh, bồn cầu thông minh, lavabo, sen vòi, HUGE">
+    <meta name="description" content="<%= content_for(:description) || t('site.description') %>">
+    <meta name="keywords" content="thiết bị vệ sinh, bồn cầu thông minh, lavabo, sen vòi, KDN">
     
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

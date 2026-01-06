@@ -1,0 +1,18 @@
+<div class="language-toggle-wrapper">
+  <div class="language-toggle <%= I18n.locale == :en ? 'language-en-active' : 'language-vi-active' %>">
+    <%= link_to set_locale_path(:vi), 
+          class: "language-option language-vi #{'active' if I18n.locale == :vi}",
+          data: { turbo: false } do %>
+      <span class="flag-icon">🇻🇳</span>
+      <span class="language-text">VI</span>
+    <% end %>
+    <%= link_to set_locale_path(:en), 
+          class: "language-option language-en #{'active' if I18n.locale == :en}",
+          data: { turbo: false } do %>
+      <span class="flag-icon">🇬🇧</span>
+      <span class="language-text">EN</span>
+    <% end %>
+    <div class="language-slider"></div>
+  </div>
+</div>
+

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
-    <title><%= content_for(:title) || "HUGE - Đăng nhập" %></title>
+    <title><%= content_for(:title) || "#{t('site.name')} - #{t('auth.login')}" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

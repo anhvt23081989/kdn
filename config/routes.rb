@@ -1,26 +1,32 @@
 Rails.application.routes.draw do
-  root "home#index"
+  # Locale scope
+  scope "(:locale)", locale: /vi|en/ do
+    root "home#index"
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations',
-    passwords: 'users/passwords'
-  }
-  devise_for :admin_users, ActiveAdmin::Devise.config.merge(controllers: {
-    sessions: 'admin_users/sessions'
-  })
-  ActiveAdmin.routes(self)
+    devise_for :users, controllers: {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations',
+      passwords: 'users/passwords'
+    }
+    devise_for :admin_users, ActiveAdmin::Devise.config.merge(controllers: {
+      sessions: 'admin_users/sessions'
+    })
+    ActiveAdmin.routes(self)
 
-  get  "/shop", to: "products#index"
-  resources :products, path: "san-pham", only: [:index, :show], param: :slug
+    get  "/shop", to: "products#index"
+    resources :products, path: "san-pham", only: [:index, :show], param: :slug
 
-  resources :categories, path: "danh-muc", only: [:show], param: :slug
+    resources :categories, path: "danh-muc", only: [:show], param: :slug
 
-  resources :posts, path: "tin-tuc", only: [:index, :show], param: :slug
-  resources :videos, path: "video", only: [:index]
+    resources :posts, path: "tin-tuc", only: [:index, :show], param: :slug
+    resources :videos, path: "video", only: [:index]
 
-  resources :catalogues, path: "catalogue", only: [:index]
-  resources :leads, only: [:new, :create] # form đăng ký nhận catalogue
+    resources :catalogues, path: "catalogue", only: [:index]
+    resources :leads, only: [:new, :create] # form đăng ký nhận catalogue
 
-  get "/pages/:slug", to: "pages#show", as: :page
+    get "/pages/:slug", to: "pages#show", as: :page
+  end
+
+  # Language switcher
+  get "/locale/:locale", to: "locales#set_locale", as: :set_locale
 end

@@ -5,16 +5,19 @@
         <!-- Logo/Brand -->
         <div class="auth-brand text-center mb-4">
           <a href="<%= root_path %>" class="logo logo-dark">
-            <span class="logo-lg">
-              <span class="logo-text text-3xl font-bold text-white">HUGE</span>
-            </span>
+            <%= image_tag "logo.jpg", alt: "KDN", class: "logo-image", style: "max-height: 60px; width: auto;" %>
           </a>
         </div>
 
         <!-- Title -->
         <div class="text-center mb-4">
-          <h4 class="auth-title">Đặt lại mật khẩu</h4>
-          <p class="auth-subtitle">Nhập mật khẩu mới của bạn</p>
+          <h4 class="auth-title"><%= t('auth.reset_password') %></h4>
+          <p class="auth-subtitle"><%= t('auth.enter_new_password') %></p>
+        </div>
+        
+        <!-- Language Switcher -->
+        <div class="text-center mb-4">
+          <%= render 'shared/language_switcher' %>
         </div>
 
         <!-- Form -->
@@ -23,7 +26,7 @@
           <%= f.hidden_field :reset_password_token %>
 
           <div class="form-group mb-3">
-            <%= f.label :password, "Mật khẩu mới", class: "form-label" %>
+            <%= f.label :password, t('form.new_password'), class: "form-label" %>
             <div class="input-group">
               <span class="input-group-text">
                 <i class="mdi mdi-lock-outline"></i>
@@ -31,36 +34,36 @@
               <%= f.password_field :password, 
                     autofocus: true,
                     autocomplete: "new-password",
-                    placeholder: "Tối thiểu #{@minimum_password_length || 6} ký tự",
+                    placeholder: t('form.enter_new_password_placeholder', min: @minimum_password_length || 6),
                     class: "form-control" %>
             </div>
             <% if @minimum_password_length %>
-              <small class="form-text text-muted">Mật khẩu tối thiểu <%= @minimum_password_length %> ký tự</small>
+              <small class="form-text text-muted"><%= t('form.password_min_length', min: @minimum_password_length) %></small>
             <% end %>
           </div>
 
           <div class="form-group mb-3">
-            <%= f.label :password_confirmation, "Xác nhận mật khẩu mới", class: "form-label" %>
+            <%= f.label :password_confirmation, t('form.confirm_new_password'), class: "form-label" %>
             <div class="input-group">
               <span class="input-group-text">
                 <i class="mdi mdi-lock-check-outline"></i>
               </span>
               <%= f.password_field :password_confirmation, 
                     autocomplete: "new-password",
-                    placeholder: "Nhập lại mật khẩu mới",
+                    placeholder: t('form.enter_password_confirmation'),
                     class: "form-control" %>
             </div>
           </div>
 
           <div class="form-group mb-0">
-            <%= f.submit "Đặt lại mật khẩu", class: "btn btn-primary w-100" %>
+            <%= f.submit t('auth.reset_password'), class: "btn btn-primary w-100" %>
           </div>
         <% end %>
 
         <!-- Footer -->
         <div class="text-center mt-4">
           <p class="text-muted">
-            <%= link_to "Quay lại đăng nhập", new_session_path(resource_name), class: "text-primary fw-semibold" %>
+            <%= link_to t('auth.back_to_login'), new_session_path(resource_name), class: "text-primary fw-semibold" %>
           </p>
         </div>
       </div>
@@ -68,7 +71,7 @@
       <!-- Footer Links -->
       <div class="auth-footer text-center">
         <p class="text-muted">
-          © <%= Date.current.year %> HUGE. Bản quyền thuộc về Công ty Cổ phần SMART BKG
+          <%= t('footer.copyright_text', year: Date.current.year) %>
         </p>
       </div>
     </div>

@@ -5,16 +5,19 @@
         <!-- Logo/Brand -->
         <div class="auth-brand text-center mb-4">
           <a href="<%= root_path %>" class="logo logo-dark">
-            <span class="logo-lg">
-              <span class="logo-text text-3xl font-bold text-white">HUGE</span>
-            </span>
+            <%= image_tag "logo.jpg", alt: "KDN", class: "logo-image", style: "max-height: 60px; width: auto;" %>
           </a>
         </div>
 
         <!-- Title -->
         <div class="text-center mb-4">
-          <h4 class="auth-title">Chỉnh sửa tài khoản</h4>
-          <p class="auth-subtitle">Cập nhật thông tin tài khoản của bạn</p>
+          <h4 class="auth-title"><%= t('auth.edit_account') %></h4>
+          <p class="auth-subtitle"><%= t('auth.update_account') %></p>
+        </div>
+        
+        <!-- Language Switcher -->
+        <div class="text-center mb-4">
+          <%= render 'shared/language_switcher' %>
         </div>
 
         <!-- Form -->
@@ -22,7 +25,7 @@
           <%= render "users/shared/error_messages", resource: resource %>
 
           <div class="form-group mb-3">
-            <%= f.label :email, "Email", class: "form-label" %>
+            <%= f.label :email, t('form.email'), class: "form-label" %>
             <div class="input-group">
               <span class="input-group-text">
                 <i class="mdi mdi-email-outline"></i>
@@ -42,50 +45,50 @@
           <% end %>
 
           <div class="form-group mb-3">
-            <%= f.label :password, "Mật khẩu mới", class: "form-label" %>
+            <%= f.label :password, t('form.new_password'), class: "form-label" %>
             <div class="input-group">
               <span class="input-group-text">
                 <i class="mdi mdi-lock-outline"></i>
               </span>
               <%= f.password_field :password, 
                     autocomplete: "new-password",
-                    placeholder: "Để trống nếu không muốn thay đổi",
+                    placeholder: t('form.password_leave_blank'),
                     class: "form-control" %>
             </div>
             <% if @minimum_password_length %>
-              <small class="form-text text-muted">Tối thiểu <%= @minimum_password_length %> ký tự (để trống nếu không đổi)</small>
+              <small class="form-text text-muted"><%= t('form.password_min_length', min: @minimum_password_length) %> (<%= t('form.password_leave_blank') %>)</small>
             <% end %>
           </div>
 
           <div class="form-group mb-3">
-            <%= f.label :password_confirmation, "Xác nhận mật khẩu mới", class: "form-label" %>
+            <%= f.label :password_confirmation, t('form.confirm_new_password'), class: "form-label" %>
             <div class="input-group">
               <span class="input-group-text">
                 <i class="mdi mdi-lock-check-outline"></i>
               </span>
               <%= f.password_field :password_confirmation, 
                     autocomplete: "new-password",
-                    placeholder: "Nhập lại mật khẩu mới",
+                    placeholder: t('form.enter_password_confirmation'),
                     class: "form-control" %>
             </div>
           </div>
 
           <div class="form-group mb-3">
-            <%= f.label :current_password, "Mật khẩu hiện tại", class: "form-label" %>
+            <%= f.label :current_password, t('form.current_password'), class: "form-label" %>
             <div class="input-group">
               <span class="input-group-text">
                 <i class="mdi mdi-lock-alert-outline"></i>
               </span>
               <%= f.password_field :current_password, 
                     autocomplete: "current-password",
-                    placeholder: "Cần mật khẩu hiện tại để xác nhận",
+                    placeholder: t('form.password_required'),
                     class: "form-control" %>
             </div>
-            <small class="form-text text-muted">Cần mật khẩu hiện tại để xác nhận thay đổi</small>
+            <small class="form-text text-muted"><%= t('form.password_required') %></small>
           </div>
 
           <div class="form-group mb-0">
-            <%= f.submit "Cập nhật", class: "btn btn-primary w-100" %>
+            <%= f.submit t('form.update'), class: "btn btn-primary w-100" %>
           </div>
         <% end %>
 
@@ -102,7 +105,7 @@
       <!-- Footer Links -->
       <div class="auth-footer text-center">
         <p class="text-muted">
-          © <%= Date.current.year %> HUGE. Bản quyền thuộc về Công ty Cổ phần SMART BKG
+          <%= t('footer.copyright_text', year: Date.current.year) %>
         </p>
       </div>
     </div>

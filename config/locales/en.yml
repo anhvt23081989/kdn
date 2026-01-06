@@ -1,31 +1,112 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  site:
+    name: "KDN"
+    title: "KDN - Smart Bathroom Equipment"
+    description: "KDN - #1 smart toilet solutions. Premium bathroom equipment, 10-year warranty, European standards."
+    admin_title: "KDN Admin"
+  
+  menu:
+    home: "Home"
+    about: "ABOUT KDN"
+    products: "Products"
+    categories: "Categories"
+    news: "News"
+    videos: "Videos"
+    catalogue: "Catalogue"
+    dealers: "Dealers"
+    contact: "Contact"
+  
+  auth:
+    login: "Log in"
+    logout: "Log out"
+    signup: "Sign up"
+    register: "Register Account"
+    edit_account: "Edit Account"
+    forgot_password: "Forgot password?"
+    reset_password: "Reset Password"
+    remember_me: "Remember me"
+    welcome_back: "Welcome back!"
+    create_account: "Create a new account to get started"
+    update_account: "Update your account information"
+    no_account: "Don't have an account?"
+    have_account: "Already have an account?"
+    signup_now: "Sign up now"
+    login_now: "Log in now"
+    back_to_login: "Back to login"
+    remember_password: "Remember password?"
+    password_reset_instructions: "Enter your email and we'll send you password reset instructions"
+    enter_new_password: "Enter your new password"
+    admin_login: "Admin Login"
+    admin_login_subtitle: "Please log in to access the admin panel"
+  
+  form:
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Confirm Password"
+    new_password: "New Password"
+    confirm_new_password: "Confirm New Password"
+    current_password: "Current Password"
+    enter_email: "Enter your email"
+    enter_password: "Enter password"
+    enter_new_password_placeholder: "Minimum %{min} characters"
+    enter_password_confirmation: "Re-enter password"
+    password_min_length: "Password minimum %{min} characters"
+    password_leave_blank: "Leave blank if you don't want to change it"
+    password_required: "We need your current password to confirm your changes"
+    submit: "Submit"
+    cancel: "Cancel"
+    update: "Update"
+    send_instructions: "Send Instructions"
+  
+  footer:
+    company: "KDN Joint Stock Company"
+    product_categories: "PRODUCT CATEGORIES"
+    support_policies: "SUPPORT POLICIES"
+    privacy_policy: "Privacy Policy"
+    shipping_policy: "Shipping Policy"
+    return_policy: "Return Policy"
+    warranty_policy: "Warranty Policy"
+    copyright: "All rights reserved."
+    copyright_text: "© %{year} KDN. Copyright belongs to KDN Company"
+  
+  home:
+    hero_title: "KDN - Smart Bathroom Equipment"
+    hero_subtitle: "#1 smart toilet solutions"
+    view_products: "View Products"
+    about_title: "ABOUT KDN"
+    about_text: "KDN is a leading smart bathroom equipment brand, specializing in smart toilet solutions and premium bathroom fixtures. With over 500 dealers nationwide, KDN is committed to providing customers with high-quality products that meet international standards."
+    about_text_2: "We are proud of our exclusive electronic warranty tag technology, with warranties up to 10 years and lifetime maintenance services. Every product is thoroughly tested before reaching customers, ensuring quality and absolute safety."
+    featured_news: "FEATURED NEWS"
+    view_all: "View All"
+  
+  value_props:
+    warranty_title: "Long-term Warranty"
+    warranty_text: "KDN uses exclusive electronic warranty tag technology. Warranty period up to 10 years, lifetime product maintenance."
+    quality_title: "Peace of Mind"
+    quality_text: "We understand what's best for each product. Every product is thoroughly tested by KDN before reaching customers."
+    variety_title: "Wide Selection"
+    variety_text: "Did you know that KDN bathroom equipment is one of the bathroom equipment brands with the largest number of products on the market with over 500 dealers nationwide."
+    standard_title: "European Standards"
+    standard_text: "Products meet UPC standards from USA, CE standards for products sold in the European Economic Area (EEA), ISO 9001 standards, RoHS standards."
+  
+  header:
+    hotline: "Hotline"
+    email: "Email"
+    slogan: "KDN - #1 smart toilet solutions"
+    search_placeholder: "Search products..."
+    cart: "Cart"
+    register_catalogue: "Register for Catalog"
+    back_to_home: "Back to Home"
+  
+  common:
+    back: "Back"
+    save: "Save"
+    delete: "Delete"
+    edit: "Edit"
+    cancel: "Cancel"
+    confirm: "Confirm"
+    loading: "Loading..."
+    no_data: "No data available"
+    error: "An error occurred"
+    success: "Success"
+    language: "Language"

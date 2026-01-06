@@ -5,16 +5,19 @@
         <!-- Logo/Brand -->
         <div class="auth-brand text-center mb-4">
           <a href="<%= root_path %>" class="logo logo-dark">
-            <span class="logo-lg">
-              <span class="logo-text text-3xl font-bold text-white">HUGE</span>
-            </span>
+            <%= image_tag "logo.jpg", alt: "KDN", class: "logo-image", style: "max-height: 60px; width: auto;" %>
           </a>
         </div>
 
         <!-- Title -->
         <div class="text-center mb-4">
-          <h4 class="auth-title">Quên mật khẩu?</h4>
-          <p class="auth-subtitle">Nhập email của bạn và chúng tôi sẽ gửi hướng dẫn đặt lại mật khẩu</p>
+          <h4 class="auth-title"><%= t('auth.forgot_password') %></h4>
+          <p class="auth-subtitle"><%= t('auth.password_reset_instructions') %></p>
+        </div>
+        
+        <!-- Language Switcher -->
+        <div class="text-center mb-4">
+          <%= render 'shared/language_switcher' %>
         </div>
 
         <!-- Form -->
@@ -22,7 +25,7 @@
           <%= render "users/shared/error_messages", resource: resource %>
 
           <div class="form-group mb-3">
-            <%= f.label :email, "Email", class: "form-label" %>
+            <%= f.label :email, t('form.email'), class: "form-label" %>
             <div class="input-group">
               <span class="input-group-text">
                 <i class="mdi mdi-email-outline"></i>
@@ -30,21 +33,21 @@
               <%= f.email_field :email, 
                     autofocus: true, 
                     autocomplete: "email",
-                    placeholder: "Nhập email của bạn",
+                    placeholder: t('form.enter_email'),
                     class: "form-control" %>
             </div>
           </div>
 
           <div class="form-group mb-0">
-            <%= f.submit "Gửi hướng dẫn", class: "btn btn-primary w-100" %>
+            <%= f.submit t('form.send_instructions'), class: "btn btn-primary w-100" %>
           </div>
         <% end %>
 
         <!-- Footer -->
         <div class="text-center mt-4">
           <p class="text-muted">
-            Nhớ lại mật khẩu?
-            <%= link_to "Đăng nhập", new_session_path(resource_name), class: "text-primary fw-semibold" %>
+            <%= t('auth.remember_password') %>
+            <%= link_to t('auth.login'), new_session_path(resource_name), class: "text-primary fw-semibold" %>
           </p>
         </div>
       </div>
@@ -52,7 +55,7 @@
       <!-- Footer Links -->
       <div class="auth-footer text-center">
         <p class="text-muted">
-          © <%= Date.current.year %> HUGE. Bản quyền thuộc về Công ty Cổ phần SMART BKG
+          <%= t('footer.copyright_text', year: Date.current.year) %>
         </p>
       </div>
     </div>
