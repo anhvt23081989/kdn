@@ -1,5 +1,5 @@
 class Users::SessionsController < Devise::SessionsController
-  layout "auth"
+  layout "auth", except: [:destroy]
   
   # Override create to check confirmation before signing in
   def create
@@ -24,12 +24,17 @@ class Users::SessionsController < Devise::SessionsController
     respond_with(resource)
   end
   
-  # Override destroy to add custom logout message
+  # Override destroy to add custom logout message and handle locale
   def destroy
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
     set_flash_message!(:notice, :signed_out) if signed_out
     yield if block_given?
-    respond_to_on_destroy
+    
+    # Redirect to root with current locale after sign out
+    # No layout needed as this is just a redirect
+    respond_to do |format|
+      format.all { redirect_to root_path(locale: I18n.locale), status: :see_other }
+    end
   end
 end
 

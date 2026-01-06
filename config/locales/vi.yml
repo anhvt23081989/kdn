@@ -1,13 +1,13 @@
 vi:
   site:
-    name: "KDN"
-    title: "KDN - Thiết Bị Nhà Tắm Thông Minh"
-    description: "KDN - Số 1 về giải pháp bồn cầu thông minh. Thiết bị vệ sinh cao cấp, bảo hành 10 năm, đạt tiêu chuẩn Châu Âu."
-    admin_title: "KDN Admin"
+    name: "TARIN"
+    title: "TARIN - Thiết Bị Nhà Tắm Thông Minh"
+    description: "TARIN - Số 1 về giải pháp bồn cầu thông minh. Thiết bị vệ sinh cao cấp, bảo hành 10 năm, đạt tiêu chuẩn Châu Âu."
+    admin_title: "TARIN Admin"
   
   menu:
     home: "Trang chủ"
-    about: "VỀ KDN"
+    about: "VỀ TARIN"
     products: "Sản phẩm"
     categories: "Danh mục"
     news: "Tin tức"
@@ -50,7 +50,7 @@ vi:
     click_confirmation_link: "Vui lòng click vào link trong email để kích hoạt tài khoản của bạn."
     confirmation_steps_title: "Hướng dẫn xác nhận:"
     step1_title: "Kiểm tra hộp thư đến"
-    step1_description: "Mở email từ KDN trong hộp thư đến của bạn (có thể ở thư mục Spam/Junk)"
+    step1_description: "Mở email từ TARIN trong hộp thư đến của bạn (có thể ở thư mục Spam/Junk)"
     step2_title: "Click vào link xác nhận"
     step2_description: "Tìm và click vào link 'Xác nhận tài khoản' trong email"
     step3_title: "Đăng nhập"
@@ -78,7 +78,7 @@ vi:
     send_instructions: "Gửi hướng dẫn"
   
   footer:
-    company: "CÔNG TY CỔ PHẦN SMART BKG"
+    company: "CÔNG TY TARIN"
     product_categories: "DANH MỤC SẢN PHẨM"
     support_policies: "CHÍNH SÁCH HỖ TRỢ"
     privacy_policy: "Chính sách bảo mật"
@@ -86,32 +86,32 @@ vi:
     return_policy: "Chính sách đổi trả"
     warranty_policy: "Chính sách bảo hành"
     copyright: "Tất cả quyền được bảo lưu."
-    copyright_text: "© %{year} KDN. Bản quyền thuộc về Công ty Cổ phần SMART BKG"
+    copyright_text: "© %{year} TARIN. Bản quyền thuộc về Công ty TARIN"
   
   home:
-    hero_title: "KDN - Thiết Bị Nhà Tắm Thông Minh"
+    hero_title: "TARIN - Thiết Bị Nhà Tắm Thông Minh"
     hero_subtitle: "Số 1 về giải pháp bồn cầu thông minh"
     view_products: "Xem sản phẩm"
-    about_title: "VỀ KDN"
-    about_text: "KDN là thương hiệu thiết bị vệ sinh thông minh hàng đầu, chuyên cung cấp các giải pháp bồn cầu thông minh và thiết bị nhà tắm cao cấp. Với hơn 500 đại lý trên toàn quốc, KDN cam kết mang đến cho khách hàng những sản phẩm chất lượng cao, đạt tiêu chuẩn quốc tế."
+    about_title: "VỀ TARIN"
+    about_text: "TARIN là thương hiệu thiết bị vệ sinh thông minh hàng đầu, chuyên cung cấp các giải pháp bồn cầu thông minh và thiết bị nhà tắm cao cấp. Với hơn 500 đại lý trên toàn quốc, TARIN cam kết mang đến cho khách hàng những sản phẩm chất lượng cao, đạt tiêu chuẩn quốc tế."
     about_text_2: "Chúng tôi tự hào về công nghệ tem bảo hành điện tử độc quyền, với thời gian bảo hành lên tới 10 năm và dịch vụ bảo trì trọn đời. Mỗi sản phẩm đều được kiểm định kỹ lưỡng trước khi đến tay khách hàng, đảm bảo chất lượng và độ an toàn tuyệt đối."
     featured_news: "TIN TỨC NỔI BẬT"
     view_all: "Xem tất cả"
   
   value_props:
     warranty_title: "Bảo hành lâu dài"
-    warranty_text: "KDN sử dụng công nghệ tem bảo hành điện tử được bảo hộ độc quyền chính hãng. Thời gian bảo hành lên tới 10 năm, bảo trì trọn đời sản phẩm."
+    warranty_text: "TARIN sử dụng công nghệ tem bảo hành điện tử được bảo hộ độc quyền chính hãng. Thời gian bảo hành lên tới 10 năm, bảo trì trọn đời sản phẩm."
     quality_title: "Yên tâm khi sử dụng"
-    quality_text: "Chúng tôi hiểu điều gì là tốt nhất đối với mỗi sản phẩm. Mỗi một sản phẩm đều được KDN kiểm định kỹ lưỡng trước khi đưa tới khách hàng."
+    quality_text: "Chúng tôi hiểu điều gì là tốt nhất đối với mỗi sản phẩm. Mỗi một sản phẩm đều được TARIN kiểm định kỹ lưỡng trước khi đưa tới khách hàng."
     variety_title: "Đa dạng lựa chọn"
-    variety_text: "Bạn có biết thiết bị vệ sinh KDN là một trong những thương hiệu thiết bị vệ sinh có số lượng sản phẩm nhiều hàng đầu trên thị trường với hơn 500 đại lý trên toàn quốc."
+    variety_text: "Bạn có biết thiết bị vệ sinh TARIN là một trong những thương hiệu thiết bị vệ sinh có số lượng sản phẩm nhiều hàng đầu trên thị trường với hơn 500 đại lý trên toàn quốc."
     standard_title: "Tiêu chuẩn Châu Âu"
     standard_text: "Sản phẩm đạt tiêu chuẩn UPC xuất USA, Tiêu chuẩn CE đối với sản phẩm được bán trong khu vực kinh tế Châu Âu (EEA), Tiêu chuẩn ISO 9001, Tiêu chuẩn RoHS."
   
   header:
     hotline: "Hotline"
     email: "Email"
-    slogan: "KDN - Số 1 về giải pháp bồn cầu thông minh"
+    slogan: "TARIN - Số 1 về giải pháp bồn cầu thông minh"
     search_placeholder: "Tìm kiếm sản phẩm..."
     cart: "Giỏ hàng"
     register_catalogue: "Đăng ký nhận Catalog"

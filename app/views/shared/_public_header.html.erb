@@ -25,7 +25,7 @@
       <!-- Logo -->
       <div class="flex-shrink-0">
         <%= link_to root_path do %>
-          <%= image_tag "logo.jpg", alt: "KDN", class: "h-12 w-auto" %>
+          <%= image_tag "logo.jpg", alt: "TARIN", class: "h-12 w-auto" %>
         <% end %>
       </div>
 
@@ -53,7 +53,7 @@
           <span class="ml-1"><%= t('header.cart') %></span>
         </div>
         <% if user_signed_in? %>
-          <%= link_to t('auth.logout'), destroy_user_session_path, data: { "turbo-method": :delete }, class: "text-gray-700 hover:text-blue-600" %>
+          <%= button_to t('auth.logout'), destroy_user_session_path, method: :delete, class: "text-gray-700 hover:text-blue-600 bg-transparent border-none cursor-pointer p-0 font-normal", form: { class: "inline", style: "display: inline;" } %>
         <% else %>
           <%= link_to t('auth.login'), new_user_session_path, class: "text-gray-700 hover:text-blue-600" %>
         <% end %>

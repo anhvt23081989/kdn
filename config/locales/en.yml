@@ -1,13 +1,13 @@
 en:
   site:
-    name: "KDN"
-    title: "KDN - Smart Bathroom Equipment"
-    description: "KDN - #1 smart toilet solutions. Premium bathroom equipment, 10-year warranty, European standards."
-    admin_title: "KDN Admin"
+    name: "TARIN"
+    title: "TARIN - Smart Bathroom Equipment"
+    description: "TARIN - #1 smart toilet solutions. Premium bathroom equipment, 10-year warranty, European standards."
+    admin_title: "TARIN Admin"
   
   menu:
     home: "Home"
-    about: "ABOUT KDN"
+    about: "ABOUT TARIN"
     products: "Products"
     categories: "Categories"
     news: "News"
@@ -50,7 +50,7 @@ en:
     click_confirmation_link: "Please click the link in the email to activate your account."
     confirmation_steps_title: "Confirmation Steps:"
     step1_title: "Check your inbox"
-    step1_description: "Open the email from KDN in your inbox (may be in Spam/Junk folder)"
+    step1_description: "Open the email from TARIN in your inbox (may be in Spam/Junk folder)"
     step2_title: "Click the confirmation link"
     step2_description: "Find and click the 'Confirm Account' link in the email"
     step3_title: "Sign in"
@@ -78,7 +78,7 @@ en:
     send_instructions: "Send Instructions"
   
   footer:
-    company: "KDN Joint Stock Company"
+    company: "TARIN Joint Stock Company"
     product_categories: "PRODUCT CATEGORIES"
     support_policies: "SUPPORT POLICIES"
     privacy_policy: "Privacy Policy"
@@ -86,32 +86,32 @@ en:
     return_policy: "Return Policy"
     warranty_policy: "Warranty Policy"
     copyright: "All rights reserved."
-    copyright_text: "© %{year} KDN. Copyright belongs to KDN Company"
+    copyright_text: "© %{year} TARIN. Copyright belongs to TARIN Company"
   
   home:
-    hero_title: "KDN - Smart Bathroom Equipment"
+    hero_title: "TARIN - Smart Bathroom Equipment"
     hero_subtitle: "#1 smart toilet solutions"
     view_products: "View Products"
-    about_title: "ABOUT KDN"
-    about_text: "KDN is a leading smart bathroom equipment brand, specializing in smart toilet solutions and premium bathroom fixtures. With over 500 dealers nationwide, KDN is committed to providing customers with high-quality products that meet international standards."
+    about_title: "ABOUT TARIN"
+    about_text: "TARIN is a leading smart bathroom equipment brand, specializing in smart toilet solutions and premium bathroom fixtures. With over 500 dealers nationwide, TARIN is committed to providing customers with high-quality products that meet international standards."
     about_text_2: "We are proud of our exclusive electronic warranty tag technology, with warranties up to 10 years and lifetime maintenance services. Every product is thoroughly tested before reaching customers, ensuring quality and absolute safety."
     featured_news: "FEATURED NEWS"
     view_all: "View All"
   
   value_props:
     warranty_title: "Long-term Warranty"
-    warranty_text: "KDN uses exclusive electronic warranty tag technology. Warranty period up to 10 years, lifetime product maintenance."
+    warranty_text: "TARIN uses exclusive electronic warranty tag technology. Warranty period up to 10 years, lifetime product maintenance."
     quality_title: "Peace of Mind"
-    quality_text: "We understand what's best for each product. Every product is thoroughly tested by KDN before reaching customers."
+    quality_text: "We understand what's best for each product. Every product is thoroughly tested by TARIN before reaching customers."
     variety_title: "Wide Selection"
-    variety_text: "Did you know that KDN bathroom equipment is one of the bathroom equipment brands with the largest number of products on the market with over 500 dealers nationwide."
+    variety_text: "Did you know that TARIN bathroom equipment is one of the bathroom equipment brands with the largest number of products on the market with over 500 dealers nationwide."
     standard_title: "European Standards"
     standard_text: "Products meet UPC standards from USA, CE standards for products sold in the European Economic Area (EEA), ISO 9001 standards, RoHS standards."
   
   header:
     hotline: "Hotline"
     email: "Email"
-    slogan: "KDN - #1 smart toilet solutions"
+    slogan: "TARIN - #1 smart toilet solutions"
     search_placeholder: "Search products..."
     cart: "Cart"
     register_catalogue: "Register for Catalog"
