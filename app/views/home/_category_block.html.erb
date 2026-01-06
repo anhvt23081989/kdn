@@ -1,53 +1,106 @@
-<%# Category Block with Tabs %>
-<section class="container mx-auto px-4 py-12 mb-12">
-  <div class="flex items-center justify-between mb-6">
-    <h2 class="text-3xl font-bold"><%= category.name.upcase %></h2>
-    <%= link_to "Xem tất cả", products_path(category_slug: category.slug), class: "text-blue-600 hover:text-blue-800 font-semibold" %>
-  </div>
-
-  <%# Tabs for subcategories %>
-  <% if subcategories.any? %>
-    <div class="border-b border-gray-200 mb-6">
-      <div class="flex space-x-4 overflow-x-auto" id="tabs-<%= category_slug %>">
-        <button class="tab-button px-4 py-2 font-medium text-gray-600 hover:text-blue-600 border-b-2 border-blue-600 text-blue-600 whitespace-nowrap active" 
-                data-category="<%= category_slug %>" 
-                data-tab="all"
-                onclick="switchTab('<%= category_slug %>', 'all', '<%= category.id %>')">
-          Tất cả
-        </button>
-        <% subcategories.each do |subcat| %>
-          <button class="tab-button px-4 py-2 font-medium text-gray-600 hover:text-blue-600 border-b-2 border-transparent whitespace-nowrap" 
-                  data-category="<%= category_slug %>" 
-                  data-tab="<%= subcat.slug %>"
-                  onclick="switchTab('<%= category_slug %>', '<%= subcat.slug %>', '<%= subcat.id %>')">
-            <%= subcat.name %>
-          </button>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-
-  <%# Product Grid - Keep height stable to avoid layout shift %>
-  <div class="product-grid-<%= category_slug %> min-h-[400px]">
-    <div id="products-<%= category_slug %>-all" class="tab-content active">
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
-        <% products.each do |product| %>
-          <%= render partial: 'product_card', locals: { product: product } %>
-        <% end %>
-        <% if products.empty? %>
-          <div class="col-span-4 text-center text-gray-500 py-8">Chưa có sản phẩm</div>
-        <% end %>
-      </div>
-    </div>
-
-    <%# Tab content for each subcategory (loaded via AJAX) %>
-    <% subcategories.each do |subcat| %>
-      <div id="products-<%= category_slug %>-<%= subcat.slug %>" class="tab-content hidden">
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
-          <div class="col-span-4 text-center text-gray-500 py-8">Đang tải...</div>
+<%# Category Block with Layout similar to HUGE - Menu left, Image left, Products right %>
+<% bg_class = local_assigns[:bg_class] || 'bg-gray-100' %>
+<section class="<%= bg_class %> py-8">
+  <div class="container mx-auto px-4">
+    <div class="row">
+      <!-- Title with title-line -->
+      <div class="w-full mb-6">
+        <div class="sago_title text-center">
+          <h2 class="text-2xl font-bold text-gray-800 mb-0">
+            <%= link_to "#{category.name.upcase} TARIN", products_path(category_slug: category.slug), class: "hover:text-blue-600 transition-colors" %>
+          </h2>
+          <div class="title-line mt-2">
+            <div class="tl-1 inline-block"></div>
+            <div class="tl-2 inline-block"></div>
+            <div class="tl-3 inline-block"></div>
+          </div>
         </div>
       </div>
-    <% end %>
+
+      <!-- Main Content: Menu + Image + Products -->
+      <div class="w-full">
+        <div class="flex flex-col md:flex-row gap-6">
+          <!-- Left Column: Menu Tabs (Vertical) -->
+          <% if subcategories.any? %>
+            <div class="w-full md:w-1/4">
+              <div class="ux-menu stack stack-col justify-start bg-white p-4 rounded-lg shadow-sm">
+                <div class="ux-menu-link flex menu-item mb-2">
+                  <button class="ux-menu-link__link flex w-full text-left px-4 py-3 font-semibold text-sm text-blue-600 bg-blue-50 rounded transition-all tab-button active" 
+                          data-category="<%= category_slug %>" 
+                          data-tab="all"
+                          onclick="switchTab('<%= category_slug %>', 'all', '<%= category.id %>')">
+                    <span class="ux-menu-link__text">TẤT CẢ</span>
+                  </button>
+                </div>
+                <% subcategories.each do |subcat| %>
+                  <div class="ux-menu-link flex menu-item mb-2">
+                    <button class="ux-menu-link__link flex w-full text-left px-4 py-3 font-semibold text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded transition-all tab-button" 
+                            data-category="<%= category_slug %>" 
+                            data-tab="<%= subcat.slug %>"
+                            onclick="switchTab('<%= category_slug %>', '<%= subcat.slug %>', '<%= subcat.id %>')">
+                      <span class="ux-menu-link__text"><%= subcat.name.upcase %></span>
+                    </button>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+          <!-- Right Column: Image + Products -->
+          <div class="w-full <%= subcategories.any? ? 'md:w-3/4' : 'md:w-full' %>">
+            <div class="flex flex-col md:flex-row gap-6">
+              <!-- Large Image (Left side, hidden on mobile) -->
+              <div class="hidden md:block md:w-1/4">
+                <div class="img-inner image-cover dark rounded-lg overflow-hidden relative" style="padding-top: 100%;">
+                  <% if category.cover_image.attached? %>
+                    <%= image_tag category.cover_image, alt: "#{category.name} TARIN", class: "absolute inset-0 w-full h-full object-cover" %>
+                  <% else %>
+                    <div class="absolute inset-0 bg-gray-200 flex items-center justify-center">
+                      <span class="text-gray-400 text-sm"><%= category.name %></span>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+
+              <!-- Products Grid (Right side) -->
+              <div class="flex-1">
+                <div class="product-grid-<%= category_slug %> min-h-[500px]">
+                  <div id="products-<%= category_slug %>-all" class="tab-content active">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                      <% products.each do |product| %>
+                        <%= render partial: 'product_card', locals: { product: product } %>
+                      <% end %>
+                      <% if products.empty? %>
+                        <div class="col-span-4 text-center text-gray-500 py-12">
+                          <p class="text-lg">Chưa có sản phẩm</p>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+
+                  <%# Tab content for each subcategory (loaded via AJAX) %>
+                  <% subcategories.each do |subcat| %>
+                    <div id="products-<%= category_slug %>-<%= subcat.slug %>" class="tab-content hidden">
+                      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <div class="col-span-4 text-center text-gray-500 py-12">
+                          <p class="text-lg">Đang tải...</p>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <!-- View All Button -->
+            <div class="text-center mt-6">
+              <%= link_to products_path(category_slug: category.slug), class: "button primary button__view inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors" do %>
+                <span>Xem tất cả</span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-

@@ -26,5 +26,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # Redirect to confirmation instructions page
     confirmation_instructions_path(email: resource.email)
   end
+
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:avatar])
+  end
 end
 

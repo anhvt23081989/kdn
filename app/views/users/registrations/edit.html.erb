@@ -1,43 +1,134 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="auth-page">
+  <div class="auth-page-wrapper">
+    <div class="auth-page-content">
+      <div class="auth-card">
+        <!-- Logo/Brand -->
+        <div class="auth-brand text-center mb-4">
+          <a href="<%= root_path %>" class="logo logo-dark">
+            <%= image_tag "logo.jpg", alt: "TARIN", class: "logo-image", style: "max-height: 60px; width: auto;" %>
+          </a>
+        </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+        <!-- Title -->
+        <div class="text-center mb-4">
+          <h4 class="auth-title"><%= t('auth.edit_account') %></h4>
+          <p class="auth-subtitle"><%= t('auth.update_account') %></p>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <!-- Alert Messages -->
+        <% if alert.present? %>
+          <div class="alert alert-danger mb-3" role="alert">
+            <%= alert %>
+          </div>
+        <% end %>
+        
+        <% if notice.present? %>
+          <div class="alert alert-success mb-3" role="alert">
+            <%= notice %>
+          </div>
+        <% end %>
+
+        <!-- Form -->
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "auth-form", multipart: true }) do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
+
+          <!-- Avatar Upload -->
+          <div class="form-group mb-4 text-center">
+            <%= f.label :avatar, t('form.avatar'), class: "form-label block mb-2" %>
+            <div class="flex flex-col items-center">
+              <% if resource.avatar.attached? %>
+                <%= image_tag resource.avatar, alt: resource.email, class: "w-24 h-24 rounded-full object-cover border-2 border-gray-300 mb-2" %>
+              <% else %>
+                <div class="w-24 h-24 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold text-2xl mb-2">
+                  <%= resource.email.first.upcase %>
+                </div>
+              <% end %>
+              <%= f.file_field :avatar, accept: "image/*", class: "form-control w-full max-w-xs mx-auto" %>
+              <small class="form-text text-muted mt-1"><%= t('form.avatar_hint', default: 'Chọn ảnh đại diện (tối đa 2MB)') %></small>
+            </div>
+          </div>
+
+          <div class="form-group mb-3">
+            <%= f.label :email, t('form.email'), class: "form-label" %>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="mdi mdi-email-outline"></i>
+              </span>
+              <%= f.email_field :email, 
+                    autofocus: true, 
+                    autocomplete: "email",
+                    class: "form-control" %>
+            </div>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div class="alert alert-warning mb-3">
+              <%= t('auth.waiting_confirmation', email: resource.unconfirmed_email, default: "Currently waiting confirmation for: #{resource.unconfirmed_email}") %>
+            </div>
+          <% end %>
+
+          <div class="form-group mb-3">
+            <%= f.label :password, t('form.password'), class: "form-label" %>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="mdi mdi-lock-outline"></i>
+              </span>
+              <%= f.password_field :password, 
+                    autocomplete: "new-password",
+                    placeholder: t('form.leave_blank', default: 'Để trống nếu không muốn đổi'),
+                    class: "form-control" %>
+            </div>
+            <% if @minimum_password_length %>
+              <small class="form-text text-muted"><%= t('form.password_min_length', min: @minimum_password_length) %></small>
+            <% end %>
+          </div>
+
+          <div class="form-group mb-3">
+            <%= f.label :password_confirmation, t('form.password_confirmation'), class: "form-label" %>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="mdi mdi-lock-check-outline"></i>
+              </span>
+              <%= f.password_field :password_confirmation, 
+                    autocomplete: "new-password",
+                    class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group mb-3">
+            <%= f.label :current_password, t('form.current_password'), class: "form-label" %>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="mdi mdi-lock-alert-outline"></i>
+              </span>
+              <%= f.password_field :current_password, 
+                    autocomplete: "current-password",
+                    placeholder: t('form.current_password_required', default: 'Cần mật khẩu hiện tại để xác nhận'),
+                    class: "form-control" %>
+            </div>
+            <small class="form-text text-muted"><%= t('form.current_password_hint', default: 'Cần mật khẩu hiện tại để xác nhận thay đổi') %></small>
+          </div>
+
+          <div class="form-group mb-3">
+            <%= f.submit t('common.save'), class: "btn btn-primary w-100" %>
+          </div>
+        <% end %>
+
+        <div class="text-center mt-4">
+          <%= link_to t('common.back'), :back, class: "text-blue-600 hover:text-blue-800" %>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="text-center">
+          <h5 class="mb-3"><%= t('auth.cancel_account', default: 'Hủy tài khoản') %></h5>
+          <p class="text-muted small mb-3"><%= t('auth.cancel_account_warning', default: 'Không hài lòng? Bạn có thể hủy tài khoản của mình.') %></p>
+          <%= button_to t('auth.cancel_account'), registration_path(resource_name), 
+                data: { confirm: t('auth.cancel_account_confirm', default: 'Bạn có chắc chắn? Hành động này không thể hoàn tác.'), turbo_confirm: t('auth.cancel_account_confirm', default: 'Bạn có chắc chắn? Hành động này không thể hoàn tác.') }, 
+                method: :delete,
+                class: "btn btn-danger btn-sm" %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</div>

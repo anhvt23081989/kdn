@@ -57,6 +57,10 @@ vi:
     step3_description: "Sau khi xác nhận thành công, bạn có thể đăng nhập vào tài khoản"
     didnt_receive_email: "Không nhận được email?"
     registration_error: "Có lỗi xảy ra khi đăng ký. Vui lòng thử lại."
+    waiting_confirmation: "Đang chờ xác nhận cho: %{email}"
+    cancel_account: "Hủy tài khoản"
+    cancel_account_warning: "Không hài lòng? Bạn có thể hủy tài khoản của mình."
+    cancel_account_confirm: "Bạn có chắc chắn? Hành động này không thể hoàn tác."
   
   form:
     email: "Email"
@@ -65,13 +69,18 @@ vi:
     new_password: "Mật khẩu mới"
     confirm_new_password: "Xác nhận mật khẩu mới"
     current_password: "Mật khẩu hiện tại"
+    avatar: "Ảnh đại diện"
+    avatar_hint: "Chọn ảnh đại diện (tối đa 2MB)"
     enter_email: "Nhập email của bạn"
     enter_password: "Nhập mật khẩu"
     enter_new_password_placeholder: "Tối thiểu %{min} ký tự"
     enter_password_confirmation: "Nhập lại mật khẩu"
     password_min_length: "Mật khẩu tối thiểu %{min} ký tự"
     password_leave_blank: "Để trống nếu không muốn thay đổi"
+    leave_blank: "Để trống nếu không muốn đổi"
     password_required: "Cần mật khẩu hiện tại để xác nhận thay đổi"
+    current_password_hint: "Cần mật khẩu hiện tại để xác nhận thay đổi"
+    current_password_required: "Cần mật khẩu hiện tại để xác nhận"
     submit: "Gửi"
     cancel: "Hủy"
     update: "Cập nhật"
@@ -116,6 +125,8 @@ vi:
     cart: "Giỏ hàng"
     register_catalogue: "Đăng ký nhận Catalog"
     back_to_home: "Quay lại trang chủ"
+    system_settings: "Cài đặt hệ thống"
+    edit_profile: "Chỉnh sửa thông tin cá nhân"
   
   common:
     back: "Quay lại"

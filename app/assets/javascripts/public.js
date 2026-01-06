@@ -27,16 +27,31 @@ function closeCatalogueModal() {
 
 // Tab switching function
 function switchTab(categorySlug, tabSlug, categoryId) {
-  // Update active tab button
+  // Update active tab button (for both horizontal and vertical menus)
   const buttons = document.querySelectorAll(`[data-category="${categorySlug}"].tab-button`);
   buttons.forEach(btn => {
-    btn.classList.remove('active', 'border-blue-600', 'text-blue-600');
-    btn.classList.add('border-transparent', 'text-gray-600');
+    btn.classList.remove('active', 'border-blue-600', 'text-blue-600', 'bg-blue-50');
+    btn.classList.add('text-gray-600', 'text-gray-700');
+    // Remove active styles
+    if (btn.classList.contains('ux-menu-link__link')) {
+      btn.classList.remove('text-blue-600', 'bg-blue-50');
+      btn.classList.add('text-gray-700');
+    }
   });
   const activeButton = document.querySelector(`[data-category="${categorySlug}"][data-tab="${tabSlug}"]`);
   if (activeButton) {
-    activeButton.classList.add('active', 'border-blue-600', 'text-blue-600');
-    activeButton.classList.remove('border-transparent', 'text-gray-600');
+    activeButton.classList.add('active');
+    if (activeButton.classList.contains('ux-menu-link__link')) {
+      // Vertical menu button
+      activeButton.classList.add('text-blue-600', 'bg-blue-50');
+      activeButton.classList.remove('text-gray-700');
+    } else {
+      // Horizontal tab button
+      activeButton.classList.add('border-blue-600', 'text-blue-600');
+      activeButton.classList.remove('border-transparent', 'text-gray-600');
+      activeButton.style.borderBottomColor = '#2563eb';
+      activeButton.style.color = '#2563eb';
+    }
   }
 
   // Hide all tab contents for this category
@@ -68,22 +83,25 @@ function loadCategoryProducts(categorySlug, subcategorySlug, categoryId) {
     .then(data => {
       if (data.products && data.products.length > 0) {
         contentDiv.innerHTML = `
-          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             ${data.products.map(product => `
-              <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-                ${product.image_url ? `<a href="/san-pham/${product.slug}"><img src="${product.image_url}" alt="${product.name}" class="w-full h-48 object-cover"></a>` : '<div class="w-full h-48 bg-gray-200 flex items-center justify-center"><span class="text-gray-400">Không có ảnh</span></div>'}
+              <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 group">
+                <div class="relative overflow-hidden">
+                  ${product.image_url ? `<a href="/san-pham/${product.slug}"><img src="${product.image_url}" alt="${product.name}" class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"></a>` : '<div class="w-full h-48 md:h-56 bg-gray-100 flex items-center justify-center"><span class="text-gray-400 text-sm">Không có ảnh</span></div>'}
+                  ${product.is_new ? '<span class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>' : ''}
+                </div>
                 <div class="p-4">
-                  <h3 class="font-semibold text-lg mb-2">
-                    <a href="/san-pham/${product.slug}" class="hover:text-blue-600">${product.name}</a>
+                  <h3 class="font-semibold text-sm md:text-base mb-2 line-clamp-2 min-h-[3rem]">
+                    <a href="/san-pham/${product.slug}" class="hover:text-blue-600 text-gray-800 transition-colors">${product.name}</a>
                   </h3>
-                  ${product.sku ? `<p class="text-gray-500 text-xs">SKU: ${product.sku}</p>` : ''}
+                  ${product.sku ? `<p class="text-gray-500 text-xs font-mono">SKU: ${product.sku}</p>` : ''}
                 </div>
               </div>
             `).join('')}
           </div>
         `;
       } else {
-        contentDiv.innerHTML = '<div class="col-span-4 text-center text-gray-500 py-8">Chưa có sản phẩm</div>';
+        contentDiv.innerHTML = '<div class="col-span-4 text-center text-gray-500 py-12"><p class="text-lg">Chưa có sản phẩm</p></div>';
       }
     })
     .catch(error => {
@@ -157,5 +175,29 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+
+  // User dropdown toggle
+  const userDropdownButton = document.querySelector('.user-dropdown button');
+  const userDropdown = document.getElementById('userDropdown');
+  
+  if (userDropdownButton && userDropdown) {
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const isClickInside = userDropdown.contains(event.target) || userDropdownButton.contains(event.target);
+      if (!isClickInside) {
+        userDropdown.classList.add('hidden');
+        userDropdown.classList.remove('show');
+      }
+    });
+  }
 });
+
+// Toggle user dropdown
+function toggleUserDropdown() {
+  const dropdown = document.getElementById('userDropdown');
+  if (dropdown) {
+    dropdown.classList.toggle('hidden');
+    dropdown.classList.toggle('show');
+  }
+}
 

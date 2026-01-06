@@ -14,6 +14,9 @@ class User < ApplicationRecord
   # Set default role
   after_initialize :set_default_role, if: :new_record?
 
+  # Avatar attachment
+  has_one_attached :avatar
+
   # Scopes (enum already provides these, but we can add custom ones if needed)
   scope :admins, -> { where(role: :admin) }
   scope :guests, -> { where(role: :guest) }

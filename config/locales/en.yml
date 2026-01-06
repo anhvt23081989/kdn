@@ -57,6 +57,10 @@ en:
     step3_description: "After successful confirmation, you can sign in to your account"
     didnt_receive_email: "Didn't receive the email?"
     registration_error: "An error occurred during registration. Please try again."
+    waiting_confirmation: "Currently waiting confirmation for: %{email}"
+    cancel_account: "Cancel Account"
+    cancel_account_warning: "Unhappy? You can cancel your account."
+    cancel_account_confirm: "Are you sure? This action cannot be undone."
   
   form:
     email: "Email"
@@ -65,13 +69,18 @@ en:
     new_password: "New Password"
     confirm_new_password: "Confirm New Password"
     current_password: "Current Password"
+    avatar: "Avatar"
+    avatar_hint: "Choose an avatar image (max 2MB)"
     enter_email: "Enter your email"
     enter_password: "Enter password"
     enter_new_password_placeholder: "Minimum %{min} characters"
     enter_password_confirmation: "Re-enter password"
     password_min_length: "Password minimum %{min} characters"
     password_leave_blank: "Leave blank if you don't want to change it"
+    leave_blank: "Leave blank if you don't want to change"
     password_required: "We need your current password to confirm your changes"
+    current_password_hint: "We need your current password to confirm your changes"
+    current_password_required: "We need your current password to confirm"
     submit: "Submit"
     cancel: "Cancel"
     update: "Update"
@@ -116,6 +125,8 @@ en:
     cart: "Cart"
     register_catalogue: "Register for Catalog"
     back_to_home: "Back to Home"
+    system_settings: "System Settings"
+    edit_profile: "Edit Profile"
   
   common:
     back: "Back"

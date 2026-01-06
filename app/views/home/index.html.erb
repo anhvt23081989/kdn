@@ -1,137 +1,124 @@
-<!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 mb-12">
-  <div class="container mx-auto px-4 text-center">
-    <h1 class="text-5xl font-bold mb-4"><%= t('home.hero_title') %></h1>
-    <p class="text-xl mb-8"><%= t('home.hero_subtitle') %></p>
-    <%= link_to t('home.view_products'), products_path, class: "inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition" %>
+<!-- Value Props Section (4 cards) - Similar to HUGE -->
+<section class="bg-white py-8 mb-0">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="text-center">
+        <div class="flex justify-center mb-4">
+          <div class="w-10 h-10 flex items-center justify-center">
+            <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-lg font-semibold mb-2 text-black"><%= t('value_props.warranty_title') %></h3>
+        <p class="text-gray-700 text-sm leading-relaxed"><%= t('value_props.warranty_text') %></p>
+      </div>
+
+      <div class="text-center">
+        <div class="flex justify-center mb-4">
+          <div class="w-10 h-10 flex items-center justify-center">
+            <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-lg font-semibold mb-2 text-black"><%= t('value_props.quality_title') %></h3>
+        <p class="text-gray-700 text-sm leading-relaxed"><%= t('value_props.quality_text') %></p>
+      </div>
+
+      <div class="text-center">
+        <div class="flex justify-center mb-4">
+          <div class="w-10 h-10 flex items-center justify-center">
+            <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-lg font-semibold mb-2 text-black"><%= t('value_props.variety_title') %></h3>
+        <p class="text-gray-700 text-sm leading-relaxed"><%= t('value_props.variety_text') %></p>
+      </div>
+
+      <div class="text-center">
+        <div class="flex justify-center mb-4">
+          <div class="w-10 h-10 flex items-center justify-center">
+            <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-lg font-semibold mb-2 text-black"><%= t('value_props.standard_title') %></h3>
+        <p class="text-gray-700 text-sm leading-relaxed"><%= t('value_props.standard_text') %></p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Value Props Section (4 cards) -->
-<section class="container mx-auto px-4 mb-16">
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-    <div class="text-center">
-      <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-        <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-        </svg>
-      </div>
-      <h3 class="text-xl font-bold mb-2"><%= t('value_props.warranty_title') %></h3>
-      <p class="text-gray-600"><%= t('value_props.warranty_text') %></p>
-    </div>
-
-    <div class="text-center">
-      <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-        <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-        </svg>
-      </div>
-      <h3 class="text-xl font-bold mb-2"><%= t('value_props.quality_title') %></h3>
-      <p class="text-gray-600"><%= t('value_props.quality_text') %></p>
-    </div>
-
-    <div class="text-center">
-      <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-        <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-        </svg>
-      </div>
-      <h3 class="text-xl font-bold mb-2"><%= t('value_props.variety_title') %></h3>
-      <p class="text-gray-600"><%= t('value_props.variety_text') %></p>
-    </div>
-
-    <div class="text-center">
-      <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-        <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-      </div>
-      <h3 class="text-xl font-bold mb-2"><%= t('value_props.standard_title') %></h3>
-      <p class="text-gray-600"><%= t('value_props.standard_text') %></p>
-    </div>
-  </div>
-</section>
-
-<!-- Category Blocks with Tabs -->
+<!-- BỒN CẦU TARIN Section -->
 <% if @bon_cau_category %>
   <%= render partial: 'category_block', locals: { 
     category: @bon_cau_category, 
     subcategories: @bon_cau_subcategories,
     products: @bon_cau_products,
-    category_slug: 'bon-cau'
+    category_slug: 'bon-cau',
+    bg_class: 'bg-gray-100'
   } %>
 <% end %>
 
+<!-- LAVABO TARIN Section -->
 <% if @lavabo_category %>
   <%= render partial: 'category_block', locals: { 
     category: @lavabo_category, 
     subcategories: @lavabo_subcategories,
     products: @lavabo_products,
-    category_slug: 'lavabo'
+    category_slug: 'lavabo',
+    bg_class: 'bg-white'
   } %>
 <% end %>
 
+<!-- SEN VÒI TARIN Section -->
 <% if @sen_voi_category %>
   <%= render partial: 'category_block', locals: { 
     category: @sen_voi_category, 
     subcategories: @sen_voi_subcategories,
     products: @sen_voi_products,
-    category_slug: 'sen-voi'
-  } %>
-<% end %>
-
-<% if @phu_kien_category %>
-  <%= render partial: 'category_block', locals: { 
-    category: @phu_kien_category, 
-    subcategories: @phu_kien_subcategories,
-    products: @phu_kien_products,
-    category_slug: 'phu-kien'
+    category_slug: 'sen-voi',
+    bg_class: 'bg-gray-100'
   } %>
 <% end %>
 
 <!-- Featured News Section -->
 <% if @latest_posts.any? %>
-  <section class="container mx-auto px-4 py-12 mb-12">
-    <div class="flex items-center justify-between mb-6">
-      <h2 class="text-3xl font-bold"><%= t('home.featured_news') %></h2>
-      <%= link_to t('home.view_all'), posts_path, class: "text-blue-600 hover:text-blue-800 font-semibold" %>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <% @latest_posts.each do |post| %>
-        <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-          <% if post.cover.attached? %>
-            <%= link_to post_path(post.slug) do %>
-              <%= image_tag post.cover, class: "w-full h-48 object-cover" %>
+  <section class="bg-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold text-gray-800"><%= t('home.featured_news') %></h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <% @latest_posts.each do |post| %>
+          <article class="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-all duration-300">
+            <% if post.cover.attached? %>
+              <%= link_to post_path(post.slug), class: "block" do %>
+                <div class="image-cover" style="padding-top: 56%; position: relative; overflow: hidden;">
+                  <%= image_tag post.cover, class: "absolute inset-0 w-full h-full object-cover" %>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="w-full" style="padding-top: 56%; background: #f1f1f1; position: relative;">
+                <span class="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">Không có ảnh</span>
+              </div>
             <% end %>
-          <% end %>
-          <div class="p-4">
-            <h3 class="font-semibold text-lg mb-2">
-              <%= link_to post.title, post_path(post.slug), class: "hover:text-blue-600" %>
-            </h3>
-            <% if post.excerpt.present? %>
-              <p class="text-gray-600 text-sm mb-2"><%= truncate(post.excerpt, length: 100) %></p>
-            <% end %>
-            <% if post.published_at.present? %>
-              <p class="text-gray-400 text-xs"><%= post.published_at.strftime("%d/%m/%Y") %></p>
-            <% end %>
-          </div>
-        </article>
-      <% end %>
+            <div class="p-3 text-left" style="background-color: rgb(241, 241, 241);">
+              <h3 class="font-semibold text-base mb-2 line-clamp-2">
+                <%= link_to post.title, post_path(post.slug), class: "hover:text-blue-600 text-gray-800 transition-colors" %>
+              </h3>
+              <div class="is-divider border-t border-gray-300 my-2"></div>
+              <% if post.excerpt.present? %>
+                <p class="text-gray-600 text-sm line-clamp-2"><%= truncate(post.excerpt, length: 80) %></p>
+              <% end %>
+            </div>
+          </article>
+        <% end %>
+      </div>
     </div>
   </section>
 <% end %>
-
-<!-- About Section -->
-<section id="about" class="bg-gray-50 py-12">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-6 text-center"><%= t('home.about_title') %></h2>
-    <div class="max-w-4xl mx-auto text-gray-700">
-      <p class="text-lg mb-4">
-        <%= t('home.about_text') %>
-      </p>
-      <p class="mb-4">
-        <%= t('home.about_text_2') %>
-      </p>
-    </div>
-  </div>
-</section>
