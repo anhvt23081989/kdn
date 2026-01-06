@@ -15,7 +15,7 @@ class LocalesController < ApplicationController
           path = uri.path
           
           # Remove old locale from path if exists
-          path = path.gsub(/^\/(vi|en)(\/|$)/, '/')
+          path = path.gsub(/^\/(vi|en|th)(\/|$)/, '/')
           path = '/' if path.blank? || path == '/'
           
           # Remove leading slash if not root

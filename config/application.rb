@@ -29,7 +29,7 @@ module Kdn
     config.assets.enabled = true
     
     # I18n configuration
-    config.i18n.available_locales = [:vi, :en]
+    config.i18n.available_locales = [:vi, :en, :th]
     config.i18n.default_locale = :vi
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
   end
