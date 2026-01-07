@@ -201,3 +201,15 @@ function toggleUserDropdown() {
   }
 }
 
+// Toggle search overlay
+function toggleSearch() {
+  const searchOverlay = document.getElementById('searchOverlay');
+  if (searchOverlay) {
+    searchOverlay.classList.toggle('hidden');
+    if (!searchOverlay.classList.contains('hidden')) {
+      const input = searchOverlay.querySelector('input[type="text"]');
+      if (input) input.focus();
+    }
+  }
+}
+

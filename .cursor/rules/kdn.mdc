@@ -8,3 +8,4 @@ alwaysApply: true
 - Follow existing libraries/conventions; do not add new deps unless asked.
 - Logic: readable, safe, with useful WHY-comments and edge cases handled.
 - UI: professional, responsive, accessible, with loading/empty/error states.
+- Alway test and confirm everything good 

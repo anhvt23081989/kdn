@@ -379,11 +379,13 @@ img[alt="TARIN Admin"] {
 
 /* Responsive logo for header */
 header img[alt="TARIN"],
-nav img[alt="TARIN"] {
+nav img[alt="TARIN"],
+header .logo-image {
   max-width: 200px;
-  max-height: 60px;
+  max-height: 64px;
   width: auto;
   height: auto;
+  object-fit: contain;
 }
 
 /* Responsive logo for admin header */
@@ -392,6 +394,32 @@ header img[alt="TARIN Admin"] {
   max-height: 40px;
   width: auto;
   height: auto;
+}
+
+/* Catalogue Button Styles */
+.btn-outline {
+  display: inline-block;
+  border: 2px solid #155fa0;
+  border-radius: 14px;
+  color: #155fa0;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background: #fff;
+  transition: .2s;
+}
+
+.btn-outline:hover {
+  background: #155fa0;
+  color: #fff;
+}
+
+/* Facebook Icon */
+.icon-facebook::before {
+  content: "f";
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
 }
 
 /* Mega menu styles */
@@ -1062,4 +1090,12 @@ header img[alt="TARIN Admin"] {
 /* Close dropdown when clicking outside */
 .user-dropdown-menu.show {
   display: block !important;
+}
+
+.header-social-icons{
+  background-color:  rgb(58, 88, 157) !important;
+  border-color:  rgb(58, 88, 157) !important;;
+}
+.header-main{
+  /* height: 66px; */
 }

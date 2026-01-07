@@ -7,12 +7,12 @@ vi:
   
   menu:
     home: "Trang chủ"
-    about: "VỀ TARIN"
+    about: "VỀ HUGE"
     products: "Sản phẩm"
     categories: "Danh mục"
     news: "Tin tức"
     videos: "Video"
-    catalogue: "Catalogue"
+    catalogue: "CATALOGUE"
     dealers: "Đại lý"
     contact: "Liên hệ"
   
@@ -124,7 +124,7 @@ vi:
   header:
     hotline: "Hotline"
     email: "Email"
-    slogan: "TARIN - Số 1 về giải pháp bồn cầu thông minh"
+    slogan: "HUGE - Số 1 về giải pháp bồn cầu thông minh"
     search_placeholder: "Tìm kiếm sản phẩm..."
     cart: "Giỏ hàng"
     register_catalogue: "Đăng ký nhận Catalog"
