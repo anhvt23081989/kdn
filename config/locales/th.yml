@@ -64,6 +64,10 @@ th:
   
   form:
     email: "อีเมล"
+    name: "ชื่อที่แสดง"
+    name_placeholder: "ชื่อจะถูกแสดงแทนอีเมล"
+    name_hint: "ชื่อนี้จะถูกแสดงแทนอีเมลในส่วนติดต่อผู้ใช้"
+    email_readonly_hint: "ไม่สามารถเปลี่ยนอีเมลได้"
     password: "รหัสผ่าน"
     password_confirmation: "ยืนยันรหัสผ่าน"
     new_password: "รหัสผ่านใหม่"
@@ -127,6 +131,16 @@ th:
     back_to_home: "กลับไปที่หน้าแรก"
     system_settings: "การตั้งค่าระบบ"
     edit_profile: "แก้ไขข้อมูลส่วนตัว"
+    change_password: "เปลี่ยนรหัสผ่าน"
+  
+  admin:
+    header:
+      title: "TARIN Admin Panel"
+      home: "ไปที่หน้าแรก"
+      profile: "โปรไฟล์"
+      system_settings: "การตั้งค่าระบบ"
+      menu: "เมนู"
+      active_admin: "Active Admin"
   
   common:
     back: "กลับ"
@@ -140,6 +154,49 @@ th:
     error: "เกิดข้อผิดพลาด"
     success: "สำเร็จ"
     language: "ภาษา"
+  
+  profiles:
+    edit_profile_title: "แก้ไขโปรไฟล์"
+    edit_profile_subtitle: "อัปเดตชื่อที่แสดงและรูปโปรไฟล์ของคุณ"
+    edit_password_title: "เปลี่ยนรหัสผ่าน"
+    edit_password_subtitle: "เปลี่ยนรหัสผ่านของคุณเพื่อความปลอดภัยของบัญชี"
+    update_success: "ข้อมูลโปรไฟล์ได้รับการอัปเดตเรียบร้อยแล้ว"
+    password_update_success: "รหัสผ่านได้รับการเปลี่ยนแปลงเรียบร้อยแล้ว"
+    security_tip: "เคล็ดลับด้านความปลอดภัย"
+    security_tip_text: "ใช้รหัสผ่านที่แข็งแกร่งอย่างน้อย 8 ตัวอักษร รวมถึงตัวพิมพ์ใหญ่ ตัวพิมพ์เล็ก ตัวเลข และอักขระพิเศษ"
+  
+  system_settings:
+    title: "การตั้งค่าระบบ"
+    description: "จัดการและกำหนดค่าส่วนประกอบของระบบ"
+    unauthorized: "คุณไม่มีสิทธิ์เข้าถึงหน้านี้"
+    active_admin:
+      title: "Active Admin"
+      description: "แผงควบคุมหลักพร้อมคุณสมบัติการจัดการแบบเต็มรูปแบบ"
+      link: "เข้าถึง Active Admin"
+    users:
+      title: "การจัดการผู้ใช้"
+      description: "จัดการบัญชีผู้ใช้และสิทธิ์"
+      link: "จัดการผู้ใช้"
+    products:
+      title: "การจัดการผลิตภัณฑ์"
+      description: "เพิ่ม แก้ไข ลบ และจัดการผลิตภัณฑ์"
+      link: "จัดการผลิตภัณฑ์"
+    categories:
+      title: "การจัดการหมวดหมู่"
+      description: "จัดระเบียบและจัดการหมวดหมู่ผลิตภัณฑ์"
+      link: "จัดการหมวดหมู่"
+    posts:
+      title: "การจัดการโพสต์"
+      description: "สร้างและจัดการโพสต์ข่าว"
+      link: "จัดการโพสต์"
+    leads:
+      title: "การจัดการ Leads"
+      description: "ดูและจัดการการลงทะเบียนแคตตาล็อก"
+      link: "จัดการ Leads"
+    quick_actions:
+      title: "การดำเนินการด่วน"
+      home: "ไปที่หน้าแรก"
+      profile: "แก้ไขโปรไฟล์"
   
   activerecord:
     errors:

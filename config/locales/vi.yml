@@ -64,6 +64,10 @@ vi:
   
   form:
     email: "Email"
+    name: "Tên hiển thị"
+    name_placeholder: "Tên sẽ được hiển thị thay cho email"
+    name_hint: "Tên này sẽ được hiển thị thay cho email trong các phần giao diện"
+    email_readonly_hint: "Email không thể thay đổi"
     password: "Mật khẩu"
     password_confirmation: "Xác nhận mật khẩu"
     new_password: "Mật khẩu mới"
@@ -127,6 +131,16 @@ vi:
     back_to_home: "Quay lại trang chủ"
     system_settings: "Cài đặt hệ thống"
     edit_profile: "Chỉnh sửa thông tin cá nhân"
+    change_password: "Đổi mật khẩu"
+  
+  admin:
+    header:
+      title: "TARIN Admin Panel"
+      home: "Về trang chủ"
+      profile: "Hồ sơ"
+      system_settings: "Cài đặt hệ thống"
+      menu: "Menu"
+      active_admin: "Active Admin"
   
   common:
     back: "Quay lại"
@@ -140,6 +154,49 @@ vi:
     error: "Có lỗi xảy ra"
     success: "Thành công"
     language: "Ngôn ngữ"
+  
+  profiles:
+    edit_profile_title: "Chỉnh sửa thông tin cá nhân"
+    edit_profile_subtitle: "Cập nhật tên hiển thị và ảnh đại diện của bạn"
+    edit_password_title: "Đổi mật khẩu"
+    edit_password_subtitle: "Thay đổi mật khẩu của bạn để bảo mật tài khoản"
+    update_success: "Thông tin cá nhân đã được cập nhật thành công."
+    password_update_success: "Mật khẩu đã được thay đổi thành công."
+    security_tip: "Mẹo bảo mật"
+    security_tip_text: "Sử dụng mật khẩu mạnh với ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt."
+  
+  system_settings:
+    title: "Cài đặt hệ thống"
+    description: "Quản lý và cấu hình các thành phần của hệ thống"
+    unauthorized: "Bạn không có quyền truy cập trang này."
+    active_admin:
+      title: "Active Admin"
+      description: "Trang quản trị chính với đầy đủ các tính năng quản lý"
+      link: "Truy cập Active Admin"
+    users:
+      title: "Quản lý người dùng"
+      description: "Quản lý tài khoản người dùng và phân quyền"
+      link: "Quản lý người dùng"
+    products:
+      title: "Quản lý sản phẩm"
+      description: "Thêm, sửa, xóa và quản lý sản phẩm"
+      link: "Quản lý sản phẩm"
+    categories:
+      title: "Quản lý danh mục"
+      description: "Tổ chức và quản lý các danh mục sản phẩm"
+      link: "Quản lý danh mục"
+    posts:
+      title: "Quản lý tin tức"
+      description: "Tạo và quản lý các bài viết tin tức"
+      link: "Quản lý tin tức"
+    leads:
+      title: "Quản lý leads"
+      description: "Xem và quản lý các đăng ký nhận catalogue"
+      link: "Quản lý leads"
+    quick_actions:
+      title: "Thao tác nhanh"
+      home: "Về trang chủ"
+      profile: "Chỉnh sửa hồ sơ"
   
   activerecord:
     errors:

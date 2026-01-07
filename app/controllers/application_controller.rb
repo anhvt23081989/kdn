@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   # Make methods available to views
   # Note: current_admin_user is automatically provided by Devise when devise_for :admin_users is in routes
-  helper_method :admin_user_signed_in?, :current_locale, :user_admin?, :user_guest?
+  helper_method :admin_user_signed_in?, :current_locale, :user_admin?, :user_guest?, :user_display_name
 
   private
 
@@ -57,6 +57,12 @@ class ApplicationController < ActionController::Base
     rescue NoMethodError, NameError
       false
     end
+  end
+
+  # Helper method to display user name or email
+  def user_display_name(user)
+    return nil unless user
+    user.name.presence || user.email
   end
 end
 

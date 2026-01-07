@@ -29,6 +29,15 @@ Rails.application.routes.draw do
     resources :leads, only: [:new, :create] # form đăng ký nhận catalogue
 
     get "/pages/:slug", to: "pages#show", as: :page
+
+    # System Settings (admin only)
+    get "/system-settings", to: "system_settings#menu", as: :system_settings_menu
+    
+    # Profile and Password management (authenticated users)
+    get "/profile/edit", to: "profiles#edit", as: :edit_profile
+    patch "/profile", to: "profiles#update", as: :profile
+    get "/password/edit", to: "passwords#edit", as: :change_password
+    patch "/password", to: "passwords#update", as: :update_password
   end
 
   # Language switcher

@@ -64,6 +64,10 @@ en:
   
   form:
     email: "Email"
+    name: "Display Name"
+    name_placeholder: "Name will be displayed instead of email"
+    name_hint: "This name will be displayed instead of email in the interface"
+    email_readonly_hint: "Email cannot be changed"
     password: "Password"
     password_confirmation: "Confirm Password"
     new_password: "New Password"
@@ -127,6 +131,16 @@ en:
     back_to_home: "Back to Home"
     system_settings: "System Settings"
     edit_profile: "Edit Profile"
+    change_password: "Change Password"
+  
+  admin:
+    header:
+      title: "TARIN Admin Panel"
+      home: "Go to Home"
+      profile: "Profile"
+      system_settings: "System Settings"
+      menu: "Menu"
+      active_admin: "Active Admin"
   
   common:
     back: "Back"
@@ -140,6 +154,49 @@ en:
     error: "An error occurred"
     success: "Success"
     language: "Language"
+  
+  profiles:
+    edit_profile_title: "Edit Profile"
+    edit_profile_subtitle: "Update your display name and avatar"
+    edit_password_title: "Change Password"
+    edit_password_subtitle: "Change your password to secure your account"
+    update_success: "Profile information has been updated successfully."
+    password_update_success: "Password has been changed successfully."
+    security_tip: "Security Tip"
+    security_tip_text: "Use a strong password with at least 8 characters, including uppercase, lowercase, numbers and special characters."
+  
+  system_settings:
+    title: "System Settings"
+    description: "Manage and configure system components"
+    unauthorized: "You don't have permission to access this page."
+    active_admin:
+      title: "Active Admin"
+      description: "Main admin panel with full management features"
+      link: "Access Active Admin"
+    users:
+      title: "User Management"
+      description: "Manage user accounts and permissions"
+      link: "Manage Users"
+    products:
+      title: "Product Management"
+      description: "Add, edit, delete and manage products"
+      link: "Manage Products"
+    categories:
+      title: "Category Management"
+      description: "Organize and manage product categories"
+      link: "Manage Categories"
+    posts:
+      title: "Post Management"
+      description: "Create and manage news posts"
+      link: "Manage Posts"
+    leads:
+      title: "Lead Management"
+      description: "View and manage catalogue registrations"
+      link: "Manage Leads"
+    quick_actions:
+      title: "Quick Actions"
+      home: "Go to Home"
+      profile: "Edit Profile"
   
   activerecord:
     errors:

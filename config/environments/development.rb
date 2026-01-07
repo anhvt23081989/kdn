@@ -8,6 +8,15 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  
+  # Enable file watcher for auto-reload
+  # This will automatically reload code when files change
+  # Rails will use the 'listen' gem to watch for file changes
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  
+  # Reload classes only when files change (more efficient)
+  # Set to false if you want to reload on every request (slower but more reliable)
+  config.reload_classes_only_on_change = true
 
   # Show full error reports.
   config.consider_all_requests_local = true
